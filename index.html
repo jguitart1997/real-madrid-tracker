@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Real Madrid — Tarjetas</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <!-- PWA / Mobile Web App -->
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="RM Tracker"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTk2IDE4IEwxNTAgNTAgTDE1MCAxMTAgQzE1MCAxNDUgOTYgMTc0IDk2IDE3NCBDOTYgMTc0IDQyIDE0NSA0MiAxMTAgTDQyIDUwIFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTk2IDI4IEwxNDQgNTcgTDE0NCAxMDggQzE0NCAxMzggOTYgMTYzIDk2IDE2MyBDOTYgMTYzIDQ4IDEzOCA0OCAxMDggTDQ4IDU3IFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSI5NiIgeT0iMTA1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI1MiIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJNPC90ZXh0PgogIDxwYXRoIGQ9Ik03MCAxMjUgTDEyMiAxMjUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSI5NiIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+"/>
+  <meta name="theme-color" content="#0d1117"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
   <style>
     :root{--gold:#d4af37;--gold-light:#f5d86e;--white:#ffffff;--dark:#0d1117;--dark2:#161b27;--dark3:#1e2436;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--border:rgba(212,175,55,0.3);}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{background:var(--dark);color:var(--white);font-family:"Montserrat",sans-serif;min-height:100vh;background-image:radial-gradient(ellipse at 20% 10%,rgba(30,50,120,0.4) 0%,transparent 55%),radial-gradient(ellipse at 80% 90%,rgba(20,30,90,0.3) 0%,transparent 55%);}
+    body{background:var(--dark);color:var(--white);font-family:"Montserrat",sans-serif;min-height:100vh;background-image:radial-gradient(ellipse at 20% 10%,rgba(30,50,120,0.4) 0%,transparent 55%),radial-gradient(ellipse at 80% 90%,rgba(20,30,90,0.3) 0%,transparent 55%);-webkit-text-size-adjust:100%;touch-action:pan-y;}
 
     /* HEADER */
     header{border-bottom:2px solid var(--gold);background:linear-gradient(135deg,#0d1117,#101830,#0d1117);padding:18px 40px;display:flex;align-items:center;gap:22px;}
@@ -20,7 +28,8 @@
     .header-btn:hover{background:var(--gold-light);}
 
     /* LAYOUT */
-    .layout{max-width:1500px;margin:0 auto;padding:32px 28px;display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start;}
+    .tab-panel > div:first-child { padding-bottom: 100px; }
+    .layout{max-width:1500px;margin:0 auto;padding:32px 28px 100px;display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start;}
     .stitle{font-family:"Bebas Neue",sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
 
     /* PLAYER GRID */
@@ -41,7 +50,7 @@
     .pts-row{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:8px;}
     .pts-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,0.3);}
     .pts-val{font-family:"Bebas Neue",sans-serif;font-size:22px;line-height:1;}
-    .log-btn{width:100%;background:transparent;border:none;border-top:1px solid var(--border);color:rgba(245,240,232,0.35);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px;cursor:pointer;transition:.15s;font-family:"Montserrat",sans-serif;}
+    .log-btn{width:100%;background:transparent;border:none;border-top:1px solid var(--border);color:rgba(245,240,232,0.35);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 7px;cursor:pointer;transition:.15s;font-family:"Montserrat",sans-serif;min-height:36px;}
     .log-btn:hover{color:var(--gold-light);background:rgba(212,175,55,0.06);}
 
     /* SIDEBAR RANKING */
@@ -106,7 +115,221 @@
     .delete-log:hover{color:var(--red);}
     .no-logs{text-align:center;padding:30px;color:rgba(245,240,232,.25);font-size:12px;letter-spacing:2px;}
 
-    @media(max-width:900px){.layout{grid-template-columns:1fr;}.sidebar{position:static;}}
+
+  /* ═══════════════════════════════════════
+     MOBILE-FIRST RESPONSIVE SYSTEM
+     Breakpoints: 480px (phone), 768px (tablet)
+  ═══════════════════════════════════════ */
+
+  /* Safe area for phones with notch/home bar */
+  :root {
+    --nav-height: 56px;
+    --bottom-nav-height: 64px;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* ── Bottom nav (mobile only, hidden on desktop) ── */
+  #bottomNav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--bottom-nav-height) + var(--safe-bottom));
+    padding-bottom: var(--safe-bottom);
+    background: rgba(13,17,23,.97);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 6px;
+  }
+  .bnav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,.35);
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px 2px;
+    transition: color .2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .bnav-btn.active { color: var(--gold); }
+  .bnav-btn .bnav-icon { font-size: 20px; line-height: 1; }
+  .bnav-btn .bnav-label { font-size: 8px; letter-spacing: .5px; white-space: nowrap; }
+
+  /* FAB — Floating Action Button (mobile) */
+  #fab {
+    display: none;
+    position: fixed;
+    bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 16px);
+    right: 18px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+    box-shadow: 0 6px 20px rgba(212,175,55,.5);
+    transition: transform .2s, box-shadow .2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #fab:active { transform: scale(.93); box-shadow: 0 3px 10px rgba(212,175,55,.4); }
+
+  /* ─── Tablet (≤900px) ─── */
+  @media(max-width:900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
+
+  /* ─── Mobile (≤768px) ─── */
+  @media(max-width:768px) {
+    /* Hide desktop tab nav, show bottom nav */
+    #tabNav { display: none !important; }
+    #bottomNav { display: flex; }
+    #fab { display: flex; align-items: center; justify-content: center; }
+
+    /* Body padding for bottom nav */
+    body { padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 24px); }
+
+    /* Compact header */
+    header { padding: 12px 16px; gap: 12px; }
+    .logo { width: 44px; height: 44px; }
+    .logo img { width: 34px; }
+    .htitle { font-size: 22px !important; letter-spacing: 2px; }
+    .hsub { display: none; }
+    .header-btn { padding: 7px 14px; font-size: 13px; }
+
+    /* Tab panels */
+    .tab-panel > div { padding: 16px 14px 120px !important; }
+
+    /* Player cards grid: 2 columns */
+    .pgrid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .pcard img { height: 130px !important; }
+
+    /* Sidebar hidden on mobile (ranking) */
+    .sidebar { display: none; }
+    .layout { gap: 16px; }
+
+    /* Filter bars: horizontal scroll */
+    .filter-bar {
+      flex-wrap: nowrap !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 10px 12px !important;
+      gap: 7px !important;
+      margin-bottom: 14px !important;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-sep { display: none; }
+    .filter-label { flex-shrink: 0; }
+    .filter-btn { flex-shrink: 0; padding: 5px 12px; font-size: 12px; }
+
+    /* Modals: slide up from bottom, full width */
+    .overlay { align-items: flex-end !important; }
+    .modal {
+      width: 100% !important;
+      max-width: 100% !important;
+      border-radius: 20px 20px 0 0 !important;
+      padding: 20px 18px 28px !important;
+      max-height: 92vh !important;
+      box-shadow: 0 -20px 60px rgba(0,0,0,.8) !important;
+    }
+    /* Handle drag indicator on modals */
+    .modal::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 4px;
+      background: rgba(255,255,255,.15);
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+    .modal h3 { font-size: 20px !important; margin-bottom: 16px !important; }
+
+    /* Match modal campograma */
+    #matchPitch {
+      width: 100% !important;
+      height: 220px !important;
+    }
+
+    /* Competition match cards */
+    .comp-match-header { padding: 12px 14px; gap: 10px; }
+    .comp-score-num { font-size: 28px !important; }
+    .comp-opponent { font-size: 13px; }
+    .comp-details { padding: 12px 14px; }
+    .comp-details > div { grid-template-columns: 1fr !important; }
+
+    /* Report modal */
+    #reportModal .modal > div:first-of-type { grid-template-columns: 1fr !important; }
+    #reportPitch { width: 100% !important; height: 220px !important; }
+    #reportPlayerRows { max-height: none !important; }
+    .report-player-row { flex-wrap: wrap; gap: 8px; }
+    .report-player-row > div:last-child { width: 100%; }
+
+    /* Stats charts */
+    .chart-box canvas { max-height: 200px; }
+
+    /* Section titles */
+    .stitle { font-size: 17px !important; }
+
+    /* Comparator */
+    .cmp-pick-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cmp-pick-box { min-height: 80px; padding: 12px 8px; }
+    .cmp-pick-photo { width: 44px; height: 44px; }
+
+    /* Dev grid */
+    .dev-grid { grid-template-columns: 1fr !important; }
+    .dev-player-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+    .dev-player-thumb img { height: 75px !important; }
+
+    /* Sessions */
+    .session-header { padding: 12px 14px; gap: 10px; }
+
+    /* Task items */
+    .task-item { padding: 12px 14px; }
+    .teams-row { gap: 8px; }
+    .team-pill { min-width: 0; flex: 1; padding: 8px 10px; }
+
+    /* Ranking panel on mobile */
+    .rank-grid { grid-template-columns: 1fr !important; }
+
+    /* Match modal - full screen on mobile */
+    .modal[style*="width:880px"],
+    .modal[style*="width:1000px"] {
+      padding: 16px 14px 28px !important;
+    }
+
+    /* Inline grids → single column */
+    div[style*="grid-template-columns:1fr 280px"],
+    div[style*="grid-template-columns:1fr 1fr;gap:20px"],
+    div[style*="grid-template-columns:420px 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ─── Small phones (≤400px) ─── */
+  @media(max-width:400px) {
+    .pgrid { grid-template-columns: 1fr 1fr !important; }
+    .pcard img { height: 110px !important; }
+    .comp-venue { display: none; }
+  }
 
   /* FILTER BAR */
   .filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px;padding:14px 18px;background:var(--dark2);border:1px solid var(--border);border-radius:12px;}
@@ -170,6 +393,9 @@
   .event-pill{display:flex;align-items:center;gap:8px;padding:7px 12px;background:rgba(255,255,255,.03);border-radius:8px;margin-bottom:4px;transition:.15s;}
   .event-pill:hover{background:rgba(255,255,255,.06);}
   .method-btn{flex:1;padding:7px 4px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1px;cursor:pointer;transition:.15s;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.45);}
+  .pts-preset-btn{padding:7px 14px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;cursor:pointer;transition:.15s;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.55);}
+  .pts-preset-btn:hover{border-color:var(--gold);color:var(--gold);}
+  .pts-preset-btn.active{background:rgba(212,175,55,.2);border-color:var(--gold);color:var(--gold);}
   .method-btn.active{background:rgba(212,175,55,.18);border-color:var(--gold);color:var(--gold);}
   .method-btn:hover{border-color:var(--gold);color:var(--gold);}
   .ev-btn{padding:6px 13px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;cursor:pointer;transition:.15s;border:1px solid;}
@@ -221,6 +447,12 @@
 
   /* Match report modal */
   .report-player-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+  @media(max-width:600px){
+    .report-player-row{flex-wrap:wrap;}
+    .report-player-row > div:first-of-type{flex:1 1 auto;}
+    .report-player-row > div:last-child{width:100%;display:flex;flex-direction:column;gap:8px;}
+    .report-player-row > div:last-child > div{justify-content:flex-start;}
+  }
   .report-player-row:last-child{border-bottom:none;}
   .rubrica-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:rgba(255,255,255,.4);font-family:"Bebas Neue",sans-serif;font-size:16px;width:30px;height:30px;cursor:pointer;transition:.15s;flex-shrink:0;}
   .rubrica-btn.active{background:rgba(212,175,55,.25);border-color:var(--gold);color:var(--gold);}
@@ -353,6 +585,317 @@
   .cmp-legend{display:flex;gap:16px;margin-bottom:12px;font-size:10px;}
   .cmp-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
 
+  /* ═══════════════════════════════════════
+     PLANTILLA TAB — player roster cards
+  ═══════════════════════════════════════ */
+  .roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+  .roster-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s, transform .15s;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .roster-card:hover { border-color: rgba(212,175,55,.5); box-shadow: 0 8px 24px rgba(0,0,0,.35); transform: translateY(-2px); }
+  .roster-card:active { transform: scale(.97); }
+  .roster-photo-wrap { position: relative; width: 100%; padding-top: 90%; background: #111; overflow: hidden; }
+  .roster-photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+  .roster-pts-badge {
+    position: absolute; top: 8px; right: 8px;
+    font-family: "Bebas Neue", sans-serif; font-size: 17px; line-height: 1;
+    padding: 5px 9px; border-radius: 8px; font-weight: 900;
+    backdrop-filter: blur(12px);
+    letter-spacing: 0.5px;
+    min-width: 36px; text-align: center;
+  }
+  .roster-pts-pos  { 
+    background: linear-gradient(135deg, #0d3b1f 0%, #1a5c32 60%, #0f4020 100%); 
+    color: #4ade80; border: 1px solid rgba(74,222,128,.45);
+    box-shadow: 0 2px 10px rgba(74,222,128,.18), inset 0 1px 0 rgba(255,255,255,.1);
+  }
+  .roster-pts-zero { 
+    background: rgba(255,255,255,.06); 
+    color: rgba(255,255,255,.3); 
+    border: 1px solid rgba(255,255,255,.1); 
+  }
+  .roster-pts-neg  { 
+    background: linear-gradient(135deg, #3b0d0d 0%, #5c1a1a 60%, #400f0f 100%); 
+    color: #f87171; border: 1px solid rgba(248,113,113,.45);
+    box-shadow: 0 2px 10px rgba(248,113,113,.18), inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .roster-info { padding: 10px 12px 6px; }
+  .roster-name { font-weight: 800; font-size: 12px; letter-spacing: .3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .roster-pos  { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,.3); text-transform: uppercase; margin-top: 1px; }
+  .roster-chips { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+  .roster-chip { display: flex; align-items: center; gap: 3px; font-family: "Bebas Neue", sans-serif; font-size: 13px; }
+  .roster-actions {
+    display: flex; border-top: 1px solid var(--border);
+    background: rgba(0,0,0,.15);
+  }
+  .roster-action-btn {
+    flex: 1; border: none; background: transparent; color: rgba(255,255,255,.3);
+    font-size: 16px; padding: 9px 4px; cursor: pointer; transition: .15s;
+    border-right: 1px solid var(--border); min-height: 40px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .roster-action-btn:last-child { border-right: none; }
+  .roster-action-btn:hover { background: rgba(212,175,55,.08); color: var(--gold); }
+  .roster-action-btn.roster-green:hover { background: rgba(34,197,94,.12); color: var(--green); }
+  .roster-action-btn.roster-yellow:hover { background: rgba(234,179,8,.12); color: var(--yellow); }
+  .roster-action-btn.roster-red:hover { background: rgba(239,68,68,.12); color: var(--red); }
+
+  /* Quick card sheet (bottom sheet overlay for fast registration) */
+  #quickCardSheet {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(0,0,0,.75); backdrop-filter: blur(8px);
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  #quickCardSheet.open { display: flex; }
+  .quick-pts-btn {
+    padding: 7px 10px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04); color: rgba(255,255,255,.5);
+    font-family: "Bebas Neue", sans-serif; font-size: 16px; cursor: pointer; transition: .15s;
+    min-width: 36px; flex-shrink: 0;
+  }
+  .quick-pts-btn.active { background: rgba(212,175,55,.2); border-color: var(--gold); color: var(--gold); }
+  .quick-pts-btn:hover { border-color: var(--gold); color: var(--gold); }
+  #quickCardSheet .sheet-body {
+    width: 100%; max-width: 480px;
+    background: var(--dark2); border-radius: 20px 20px 0 0;
+    padding: 20px 20px 32px; border: 1px solid var(--border);
+    animation: slideUp .22s ease;
+  }
+  @keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .sheet-handle { width: 36px; height: 4px; background: rgba(255,255,255,.15); border-radius: 2px; margin: 0 auto 14px; }
+  .sheet-player-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .sheet-player-row img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--border); }
+  .quick-type-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .quick-type-btn {
+    padding: 14px 8px; border-radius: 10px; border: 2px solid transparent;
+    font-family: "Bebas Neue", sans-serif; font-size: 15px; letter-spacing: 1.5px;
+    cursor: pointer; text-align: center; transition: .15s; background: rgba(255,255,255,.04);
+    color: rgba(255,255,255,.5);
+  }
+  .quick-type-btn.qt-green { border-color: rgba(34,197,94,.3); }
+  .quick-type-btn.qt-green.active { background: rgba(34,197,94,.2); border-color: var(--green); color: var(--green); }
+  .quick-type-btn.qt-yellow { border-color: rgba(234,179,8,.3); }
+  .quick-type-btn.qt-yellow.active { background: rgba(234,179,8,.18); border-color: var(--yellow); color: var(--yellow); }
+  .quick-type-btn.qt-red { border-color: rgba(239,68,68,.3); }
+  .quick-type-btn.qt-red.active { background: rgba(239,68,68,.18); border-color: var(--red); color: var(--red); }
+  .quick-card-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+
+  /* Competition redesign */
+  .comp-summary-strip {
+    display: flex; gap: 0; border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; margin-bottom: 20px; background: var(--dark2);
+  }
+  .comp-summary-cell {
+    flex: 1; text-align: center; padding: 16px 8px; position: relative;
+    border-right: 1px solid var(--border);
+  }
+  .comp-summary-cell:last-child { border-right: none; }
+  .comp-summary-num { font-family: "Bebas Neue", sans-serif; font-size: 34px; line-height: 1; }
+  .comp-summary-lbl { font-size: 8px; letter-spacing: 2px; color: rgba(255,255,255,.3); text-transform: uppercase; margin-top: 3px; }
+
+  .match-feed { display: flex; flex-direction: column; gap: 10px; }
+  .match-card-v2 {
+    background: var(--dark2); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; transition: border-color .2s;
+  }
+  .match-card-v2:hover { border-color: rgba(212,175,55,.35); }
+  .match-card-header-v2 {
+    display: grid; grid-template-columns: auto 1fr auto auto;
+    align-items: center; gap: 12px; padding: 14px 18px; cursor: pointer;
+  }
+  .match-score-block { text-align: center; min-width: 70px; }
+  .match-score-big { font-family: "Bebas Neue", sans-serif; font-size: 38px; line-height: 1; letter-spacing: 2px; }
+  .match-score-sep { color: rgba(255,255,255,.2); margin: 0 3px; }
+  .match-result-pill {
+    font-family: "Bebas Neue", sans-serif; font-size: 11px; letter-spacing: 2px;
+    padding: 2px 8px; border-radius: 3px; display: inline-block; margin-top: 2px;
+  }
+  .mrp-win  { background: rgba(34,197,94,.2);  color: var(--green); }
+  .mrp-draw { background: rgba(234,179,8,.15);  color: var(--yellow); }
+  .mrp-loss { background: rgba(239,68,68,.15);  color: var(--red); }
+  .match-meta-block { flex: 1; }
+  .match-rival { font-weight: 800; font-size: 14px; }
+  .match-submeta { font-size: 10px; color: rgba(255,255,255,.35); margin-top: 2px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .comp-tag { display: inline-flex; align-items: center; gap: 4px; }
+
+  @media(max-width:768px) {
+    .roster-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .comp-summary-cell { padding: 12px 4px; }
+    .comp-summary-num { font-size: 26px; }
+    .match-card-header-v2 { padding: 12px 14px; gap: 8px; }
+    .match-score-big { font-size: 30px; }
+    .match-rival { font-size: 13px; }
+  }
+  @media(max-width:400px) {
+    .roster-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .comp-summary-strip { flex-wrap: wrap; }
+    .comp-summary-cell { min-width: 33%; }
+  }
+
+  /* ═══════════════ HOY / PLAN ═══════════════ */
+  .hoy-date-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(212,175,55,.08); border:1px solid rgba(212,175,55,.2);
+    border-radius:10px; padding:6px 14px;
+    font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:2px;
+    color:rgba(212,175,55,.8); margin-bottom:18px;
+  }
+  .hoy-briefing-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;
+  }
+  @media(max-width:600px){ .hoy-briefing-grid { grid-template-columns:1fr; } }
+  .hoy-card {
+    background:var(--dark2); border:1px solid var(--border); border-radius:14px;
+    padding:16px 18px; position:relative; overflow:hidden;
+  }
+  .hoy-card-accent { position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:3px 0 0 3px; }
+  .hoy-card-label {
+    font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:2.5px;
+    color:rgba(255,255,255,.3); margin-bottom:6px;
+  }
+  .hoy-card-main { font-size:15px; font-weight:700; line-height:1.3; }
+  .hoy-card-sub { font-size:12px; color:rgba(255,255,255,.4); margin-top:4px; }
+  .hoy-alert-strip {
+    background:rgba(239,68,68,.06); border:1px solid rgba(239,68,68,.15);
+    border-radius:12px; padding:14px 16px; margin-bottom:20px;
+  }
+  .hoy-alert-title {
+    font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:2px;
+    color:rgba(239,68,68,.8); margin-bottom:10px; display:flex; align-items:center; gap:6px;
+  }
+  .hoy-alert-row {
+    display:flex; align-items:center; gap:10px; padding:5px 0;
+    border-bottom:1px solid rgba(255,255,255,.04);
+  }
+  .hoy-alert-row:last-child { border-bottom:none; }
+  .hoy-alert-days {
+    font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--red);
+    min-width:36px; text-align:center;
+  }
+  /* CALENDAR */
+  .cal-header {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .cal-month-title {
+    font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px; color:var(--gold-light);
+  }
+  .cal-nav-btn {
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--border);
+    background:rgba(255,255,255,.04); color:rgba(255,255,255,.6);
+    font-size:16px; cursor:pointer; transition:.15s; display:flex; align-items:center; justify-content:center;
+  }
+  .cal-nav-btn:hover { border-color:var(--gold); color:var(--gold); }
+  .cal-weekdays {
+    display:grid; grid-template-columns:repeat(7,1fr);
+    margin-bottom:6px;
+  }
+  .cal-wd {
+    text-align:center; font-family:'Bebas Neue',sans-serif; font-size:11px;
+    letter-spacing:1.5px; color:rgba(255,255,255,.25); padding:4px 0;
+  }
+  .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+  .cal-day {
+    aspect-ratio:1; border-radius:10px; border:1px solid transparent;
+    background:rgba(255,255,255,.02); cursor:pointer; transition:.15s;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; padding:2px; min-height:44px;
+  }
+  .cal-day:hover:not(.cal-empty) { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12); }
+  .cal-day.cal-today {
+    border-color:var(--gold) !important; background:rgba(212,175,55,.08) !important;
+    box-shadow:0 0 0 1px rgba(212,175,55,.25);
+  }
+  .cal-day.cal-empty { cursor:default; background:transparent; border-color:transparent; }
+  .cal-day.cal-past { opacity:.5; }
+  .cal-day-num {
+    font-family:'Bebas Neue',sans-serif; font-size:15px; color:rgba(255,255,255,.7);
+    line-height:1;
+  }
+  .cal-today .cal-day-num { color:var(--gold); }
+  .cal-dots { display:flex; gap:2px; margin-top:3px; flex-wrap:wrap; justify-content:center; }
+  .cal-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  .cal-dot-plan-ent  { background:#f59e0b; }
+  .cal-dot-plan-par  { background:#6ab4ff; }
+  .cal-dot-plan-des  { background:rgba(255,255,255,.25); }
+  .cal-dot-real-ses  { background:var(--green); }
+  .cal-dot-real-mat  { background:#a78bfa; }
+  /* Day type overlays */
+  .cal-day.type-ent  { background:rgba(245,158,11,.06) !important; border-color:rgba(245,158,11,.2) !important; }
+  .cal-day.type-par  { background:rgba(106,180,255,.06) !important; border-color:rgba(106,180,255,.2) !important; }
+  .cal-day.type-des  { background:rgba(255,255,255,.02) !important; }
+  .cal-day.has-real  { border-color:rgba(34,197,94,.25) !important; }
+  .cal-day.type-ent.has-real { border-color:rgba(34,197,94,.4) !important; }
+  /* Stat bar below calendar */
+  .cal-legend {
+    display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;
+    padding-top:12px; border-top:1px solid rgba(255,255,255,.06);
+  }
+  .cal-legend-item {
+    display:flex; align-items:center; gap:5px;
+    font-size:11px; color:rgba(255,255,255,.35); letter-spacing:1px;
+    font-family:'Bebas Neue',sans-serif;
+  }
+  /* DAY MODAL */
+  #dayModal { display:none; position:fixed; inset:0; z-index:200;
+    background:rgba(0,0,0,.75); backdrop-filter:blur(6px);
+    align-items:flex-end; justify-content:center;
+  }
+  #dayModal.open { display:flex; }
+  .day-modal-sheet {
+    background:var(--dark2); border-radius:20px 20px 0 0;
+    border:1px solid var(--border); padding:24px 20px 40px;
+    width:100%; max-width:520px; max-height:80vh; overflow-y:auto;
+  }
+  .day-modal-date {
+    font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px;
+    color:var(--gold-light); margin-bottom:4px;
+  }
+  .day-modal-subtitle { font-size:12px; color:rgba(255,255,255,.35); margin-bottom:18px; }
+  .day-type-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:18px; }
+  .day-type-btn {
+    border-radius:10px; border:2px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.03); padding:10px 6px;
+    cursor:pointer; transition:.15s; text-align:center;
+    font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:1.5px;
+    color:rgba(255,255,255,.5); display:flex; flex-direction:column; gap:4px; align-items:center;
+  }
+  .day-type-btn .dt-icon { font-size:22px; }
+  .day-type-btn:hover { border-color:rgba(255,255,255,.3); color:var(--white); }
+  .day-type-btn.active-ent { border-color:#f59e0b; background:rgba(245,158,11,.1); color:#f59e0b; }
+  .day-type-btn.active-par { border-color:#6ab4ff; background:rgba(106,180,255,.1); color:#6ab4ff; }
+  .day-type-btn.active-des { border-color:rgba(255,255,255,.4); background:rgba(255,255,255,.06); color:var(--white); }
+  .day-type-btn.active-lib { border-color:rgba(255,255,255,.2); background:rgba(255,255,255,.04); color:rgba(255,255,255,.6); }
+  .day-notes-area {
+    width:100%; background:rgba(255,255,255,.04); border:1px solid var(--border);
+    border-radius:10px; padding:12px; color:var(--white); font-size:14px;
+    resize:vertical; min-height:70px; font-family:inherit; margin-bottom:16px;
+    box-sizing:border-box;
+  }
+  .day-notes-area:focus { outline:none; border-color:rgba(212,175,55,.4); }
+  .day-real-section { margin-bottom:16px; }
+  .day-real-title {
+    font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:2px;
+    color:rgba(255,255,255,.25); margin-bottom:8px;
+  }
+  .day-real-item {
+    display:flex; align-items:center; gap:8px; padding:8px 10px;
+    background:rgba(255,255,255,.03); border-radius:8px; margin-bottom:4px;
+    font-size:13px; color:rgba(255,255,255,.7);
+  }
+  .day-real-item .ri-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
 </style>
 </head>
 <body>
@@ -367,21 +910,173 @@
   </div>
   
 </header>
-<!-- TAB NAV -->
+<!-- DESKTOP TAB NAV -->
 <nav id="tabNav">
-  <button class="tab-btn active" onclick="switchTab('tarjetas',this)">⚽ TARJETAS</button>
+  <button class="tab-btn" onclick="switchTab('hoy',this)">📅 HOY</button>
+  <button class="tab-btn active" onclick="switchTab('plantilla',this)">👥 PLANTILLA</button>
   <button class="tab-btn" onclick="switchTab('tareas',this)">📋 TAREAS</button>
   <button class="tab-btn" onclick="switchTab('stats',this)">📊 ESTADÍSTICAS</button>
-  <button class="tab-btn" onclick="switchTab('desarrollo',this)">👤 DESARROLLO</button>
   <button class="tab-btn" onclick="switchTab('comparar',this)">⚖️ COMPARAR</button>
   <button class="tab-btn" onclick="switchTab('competicion',this)">🏆 COMPETICIÓN</button>
 </nav>
 
+<!-- MOBILE BOTTOM NAV (6 items) -->
+<nav id="bottomNav">
+  <button class="bnav-btn" id="bnav-hoy" onclick="switchTab('hoy',this,true)">
+    <span class="bnav-icon">📅</span>
+    <span class="bnav-label">Hoy</span>
+  </button>
+  <button class="bnav-btn active" id="bnav-plantilla" onclick="switchTab('plantilla',this,true)">
+    <span class="bnav-icon">👥</span>
+    <span class="bnav-label">Plantilla</span>
+  </button>
+  <button class="bnav-btn" id="bnav-tareas" onclick="switchTab('tareas',this,true)">
+    <span class="bnav-icon">📋</span>
+    <span class="bnav-label">Tareas</span>
+  </button>
+  <button class="bnav-btn" id="bnav-stats" onclick="switchTab('stats',this,true)">
+    <span class="bnav-icon">📊</span>
+    <span class="bnav-label">Stats</span>
+  </button>
+  <button class="bnav-btn" id="bnav-competicion" onclick="switchTab('competicion',this,true)">
+    <span class="bnav-icon">🏆</span>
+    <span class="bnav-label">Partidos</span>
+  </button>
+  <button class="bnav-btn" id="bnav-comparar" onclick="switchTab('comparar',this,true)">
+    <span class="bnav-icon">⚖️</span>
+    <span class="bnav-label">Comparar</span>
+  </button>
 
-<div id="tab-tarjetas" class="tab-panel"><div class="layout">
+</nav>
+
+<!-- MOBILE FAB -->
+<button id="fab" onclick="handleFab()" title="Acción rápida">＋</button>
+
+
+<!-- ═══════════════════════════════════════════════════
+     TAB: HOY / PLAN
+═══════════════════════════════════════════════════ -->
+<div id="tab-hoy" class="tab-panel" style="display:none;"><div class="layout">
+
+  <!-- Briefing header -->
+  <div id="hoyDateBadge" class="hoy-date-badge"></div>
+
+  <!-- Cards grid: sesion hoy + partido próximo -->
+  <div class="hoy-briefing-grid" id="hoyBriefingGrid"></div>
+
+  <!-- Alertas: jugadores sin tarjeta positiva -->
+  <div id="hoyAlerts"></div>
+
+  <!-- Calendario mensual -->
+  <div style="background:var(--dark2);border:1px solid var(--border);border-radius:16px;padding:20px 18px;">
+    <div class="cal-header">
+      <button class="cal-nav-btn" onclick="calPrevMonth()">‹</button>
+      <div class="cal-month-title" id="calMonthTitle"></div>
+      <button class="cal-nav-btn" onclick="calNextMonth()">›</button>
+    </div>
+    <div class="cal-weekdays">
+      <div class="cal-wd">LUN</div><div class="cal-wd">MAR</div><div class="cal-wd">MIÉ</div>
+      <div class="cal-wd">JUE</div><div class="cal-wd">VIE</div><div class="cal-wd">SÁB</div>
+      <div class="cal-wd">DOM</div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-legend">
+      <div class="cal-legend-item"><div class="cal-dot cal-dot-plan-ent"></div> ENTRENAMIENTO</div>
+      <div class="cal-legend-item"><div class="cal-dot cal-dot-plan-par"></div> PARTIDO</div>
+      <div class="cal-legend-item"><div class="cal-dot cal-dot-plan-des"></div> DESCANSO</div>
+      <div class="cal-legend-item"><div class="cal-dot cal-dot-real-ses"></div> SESIÓN REAL</div>
+      <div class="cal-legend-item"><div class="cal-dot cal-dot-real-mat"></div> PARTIDO REAL</div>
+    </div>
+  </div>
+
+  <!-- Resumen mensual stats -->
+  <div id="calMonthStats" style="margin-top:14px;"></div>
+
+</div></div>
+
+<!-- DAY PLANNING MODAL -->
+<div id="dayModal" onclick="if(event.target===this)closeDayModal()">
+  <div class="day-modal-sheet">
+    <div class="day-modal-date" id="dayModalDate"></div>
+    <div class="day-modal-subtitle" id="dayModalSub"></div>
+
+    <!-- Realizado ese día -->
+    <div class="day-real-section" id="dayRealSection"></div>
+
+    <!-- Planificación -->
+    <div class="day-real-title">PLANIFICAR DÍA</div>
+    <div class="day-type-grid">
+      <button class="day-type-btn" id="dbt-ent"  onclick="setDayType('ent')"><span class="dt-icon">🏃</span>ENTRE&shy;NAMIENTO</button>
+      <button class="day-type-btn" id="dbt-par"  onclick="setDayType('par')"><span class="dt-icon">⚽</span>PARTIDO</button>
+      <button class="day-type-btn" id="dbt-des"  onclick="setDayType('des')"><span class="dt-icon">😴</span>DESCANSO</button>
+      <button class="day-type-btn" id="dbt-lib"  onclick="setDayType('lib')"><span class="dt-icon">🆓</span>LIBRE</button>
+    </div>
+    <textarea class="day-notes-area" id="dayNotes" placeholder="Notas, objetivos, convocatoria..."></textarea>
+    <div style="display:flex;gap:10px;">
+      <button onclick="saveDayPlan()" style="flex:1;padding:13px;border-radius:10px;border:none;background:var(--gold);color:var(--dark);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;">GUARDAR</button>
+      <button onclick="clearDayPlan()" style="padding:13px 16px;border-radius:10px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.06);color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:14px;cursor:pointer;">BORRAR</button>
+      <button onclick="closeDayModal()" style="padding:13px 16px;border-radius:10px;border:1px solid var(--border);background:transparent;color:rgba(255,255,255,.4);font-family:'Bebas Neue',sans-serif;font-size:14px;cursor:pointer;">CERRAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TAB: PLANTILLA
+═══════════════════════════════════════════════════ -->
+<div id="tab-plantilla" class="tab-panel">
+  <div style="max-width:1500px;margin:0 auto;padding:24px 20px 120px;">
+
+    <!-- Header row -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;color:var(--gold-light);">👥 PLANTILLA</div>
+        <div style="font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.3);">Toca un jugador para registrar tarjeta rápida</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button onclick="openAddCard()" style="background:rgba(212,175,55,.12);color:var(--gold);border:1px solid rgba(212,175,55,.3);padding:8px 16px;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;cursor:pointer;">+ MÚLTIPLE</button>
+        <div class="filter-bar" style="margin:0;padding:6px 10px;gap:6px;">
+          <button class="filter-btn active" id="rp-all" onclick="setRosterPos('all',this)">TODOS</button>
+          <button class="filter-btn" id="rp-PO" onclick="setRosterPos('PO',this)">PO</button>
+          <button class="filter-btn" id="rp-DEF" onclick="setRosterPos('DEF',this)">DEF</button>
+          <button class="filter-btn" id="rp-MC" onclick="setRosterPos('MC',this)">MC</button>
+          <button class="filter-btn" id="rp-DEL" onclick="setRosterPos('DEL',this)">DEL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roster grid -->
+    <div class="roster-grid" id="rosterGrid"></div>
+
+    <!-- Inline player profile (expands when a card is clicked) -->
+    <div id="rosterProfile" style="display:none;margin-top:24px;border-top:2px solid var(--border);padding-top:24px;"></div>
+
+    <!-- Ranking de puntos — filtrable por mes / total -->
+    <div id="rosterRanking" style="margin-top:32px;padding-top:28px;border-top:2px solid var(--border);">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--gold-light);">🏅 CLASIFICACIÓN DE PUNTOS</div>
+        <div style="display:flex;gap:6px;">
+          <button class="filter-btn active" id="rrank-mes" onclick="setRosterRankFilter('mes',this)" style="padding:5px 14px;font-size:13px;">ESTE MES</button>
+          <button class="filter-btn" id="rrank-total" onclick="setRosterRankFilter('total',this)" style="padding:5px 14px;font-size:13px;">TOTAL</button>
+        </div>
+      </div>
+      <div id="rosterRankList"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="tab-tarjetas" class="tab-panel" style="display:none;"><div class="layout">
   <div>
-    <div class="stitle">⚽ EQUIPO
-    <button onclick="openAddCard()" style="margin-left:auto;background:var(--gold);color:var(--dark);border:none;padding:9px 20px;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;transition:.2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">+ REGISTRAR TARJETA</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+      <button id="mobileRankToggle" onclick="toggleMobileRanking()" style="display:none;background:rgba(212,175,55,.12);color:var(--gold);border:1px solid rgba(212,175,55,.3);padding:7px 14px;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;cursor:pointer;">🏆 RANKING</button>
+      <button onclick="openAddCard()" style="margin-left:auto;background:var(--gold);color:var(--dark);border:none;padding:9px 20px;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;transition:.2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">+ TARJETA</button>
+  </div>
+  <!-- Mobile ranking panel (collapsed by default) -->
+  <div id="mobileRankPanel" style="display:none;background:var(--dark2);border:1px solid var(--border);border-radius:14px;margin-bottom:16px;overflow:hidden;">
+    <div style="background:linear-gradient(90deg,rgba(212,175,55,.15),transparent);padding:14px 18px;border-bottom:1px solid var(--border);">
+      <div class="stitle" style="border:none;margin:0;padding:0;font-size:16px;">🏆 CLASIFICACIÓN</div>
+    </div>
+    <div id="mobileRankList" style="max-height:280px;overflow-y:auto;"></div>
   </div>
   <div class="filter-bar">
     <span class="filter-label">Período</span>
@@ -443,6 +1138,52 @@
     <div class="mactions">
       <button class="btn-ok" onclick="confirmAddCard()">CONFIRMAR</button>
       <button class="btn-cancel" onclick="closeAddCard()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK CARD SHEET (Plantilla fast registration) -->
+<div id="quickCardSheet">
+  <div class="sheet-body">
+    <div class="sheet-handle"></div>
+    <div class="sheet-player-row">
+      <img id="qcsPhoto" src="" alt=""/>
+      <div>
+        <div style="font-weight:800;font-size:15px;" id="qcsName">Jugador</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.35);margin-top:2px;" id="qcsMeta">—</div>
+      </div>
+    </div>
+    <!-- Card type -->
+    <div class="quick-type-row">
+      <button class="quick-type-btn qt-green" id="qt-green" onclick="qcsSelType('green')">
+        <span class="quick-card-icon">🟢</span>VERDE
+      </button>
+      <button class="quick-type-btn qt-yellow" id="qt-yellow" onclick="qcsSelType('yellow')">
+        <span class="quick-card-icon">🟡</span>AMARILLA
+      </button>
+      <button class="quick-type-btn qt-red" id="qt-red" onclick="qcsSelType('red')">
+        <span class="quick-card-icon">🔴</span>ROJA
+      </button>
+    </div>
+    <!-- Motivo shortcuts -->
+    <div id="qcsShortcuts" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;"></div>
+    <!-- Custom motivo -->
+    <input class="finput" id="qcsMotivo" type="text" placeholder="Motivo (o elige arriba)..." style="margin-bottom:12px;"/>
+    <!-- Points -->
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:18px;">
+      <span style="font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.4);">PUNTOS</span>
+      <div style="display:flex;gap:4px;" id="qcsPtsRow">
+        <button class="quick-pts-btn" onclick="qcsSetPts(1)">1</button>
+        <button class="quick-pts-btn" onclick="qcsSetPts(2)">2</button>
+        <button class="quick-pts-btn" onclick="qcsSetPts(3)">3</button>
+        <button class="quick-pts-btn" onclick="qcsSetPts(5)">5</button>
+        <button class="quick-pts-btn" onclick="qcsSetPts(10)">10</button>
+      </div>
+      <input class="finput" id="qcsPts" type="number" min="0" step="0.5" placeholder="Otro" style="width:80px;padding:7px 10px;font-size:13px;"/>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <button onclick="closeQuickCard()" style="padding:13px;border-radius:10px;border:1px solid var(--border);background:transparent;color:rgba(255,255,255,.4);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;">CANCELAR</button>
+      <button onclick="saveQuickCard()" style="padding:13px;border-radius:10px;border:none;background:var(--gold);color:var(--dark);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;">GUARDAR</button>
     </div>
   </div>
 </div>
@@ -607,7 +1348,40 @@ function renderRanking(){
   }).join("");
 }
 
-function render(){renderPlayers();renderRanking();}
+function render(){
+  renderPlayers();
+  renderRanking();
+  // Also refresh roster if plantilla tab is visible
+  if(_currentTab==='plantilla') renderRoster(); renderRosterRanking();
+  // Sync mobile ranking if visible
+  const mpanel = document.getElementById('mobileRankPanel');
+  const mrankList = document.getElementById('mobileRankList');
+  if(mpanel && mpanel.style.display!=='none' && mrankList){
+    mrankList.innerHTML = document.getElementById('rankList').innerHTML;
+  }
+  // Show/hide mobile ranking btn
+  const mBtn = document.getElementById('mobileRankToggle');
+  if(mBtn) mBtn.style.display = window.innerWidth<=768?'block':'none';
+}
+
+function toggleMobileRanking(){
+  const panel = document.getElementById('mobileRankPanel');
+  const btn = document.getElementById('mobileRankToggle');
+  if(!panel) return;
+  const open = panel.style.display==='block';
+  panel.style.display = open?'none':'block';
+  btn.textContent = open?'🏆 RANKING':'✕ CERRAR';
+  if(!open){
+    // Populate mobile rank list
+    const mrankList = document.getElementById('mobileRankList');
+    if(mrankList) mrankList.innerHTML = document.getElementById('rankList').innerHTML;
+  }
+}
+window.addEventListener('resize',()=>{
+  const mBtn = document.getElementById('mobileRankToggle');
+  if(mBtn) mBtn.style.display = window.innerWidth<=768?'block':'none';
+  updateFabAction(_currentTab||'tarjetas');
+});
 
 // ADD CARD
 let selectedType="green";
@@ -721,7 +1495,7 @@ function deleteLog(pid,lid){
 document.getElementById("addModal").addEventListener("click",e=>{if(e.target===e.currentTarget)closeAddCard();});
 document.getElementById("logModal").addEventListener("click",e=>{if(e.target===e.currentTarget)closeLog();});
 
-render();
+// (init moved below let declarations)
 
 // ═══════════════════════════════════════
 //   TASK TAXONOMY
@@ -745,18 +1519,798 @@ function saveTasks(d){localStorage.setItem("rm_tasks",JSON.stringify(d));}
 let tdata = loadTasks();
 
 // ── Tab switching ──
-function switchTab(tab, btn){
+let _currentTab = 'plantilla';
+let _rosterPosFilter = 'all';
+let _rosterRankFilter = 'mes';
+
+// ── INIT (after all let declarations) ──
+render();
+renderRoster();
+document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+document.querySelectorAll(".bnav-btn").forEach(b=>b.classList.remove("active"));
+(function(){
+  const btn = [...document.querySelectorAll(".tab-btn")].find(b=>(b.getAttribute("onclick")||'').includes("'plantilla'"));
+  if(btn) btn.classList.add("active");
+  const nb = document.getElementById("bnav-plantilla");
+  if(nb) nb.classList.add("active");
+})();
+setTimeout(()=>updateFabAction('plantilla'),50);
+
+function switchTab(tab, btn, fromMobile){
+  _currentTab = tab;
   document.querySelectorAll(".tab-panel").forEach(p=>p.style.display="none");
   document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".bnav-btn").forEach(b=>b.classList.remove("active"));
   document.getElementById("tab-"+tab).style.display="block";
-  btn.classList.add("active");
-  if(tab==="stats"){ renderCharts(); chartsNeedUpdate=false;
-  renderCompCharts(); }
+  if(btn) btn.classList.add("active");
+  const bnavBtn = document.getElementById("bnav-"+tab);
+  if(bnavBtn) bnavBtn.classList.add("active");
+  if(fromMobile){
+    const desktopBtn = [...document.querySelectorAll(".tab-btn")].find(b=>b.getAttribute("onclick")&&b.getAttribute("onclick").includes("'"+tab+"'"));
+    if(desktopBtn) desktopBtn.classList.add("active");
+  }
+  updateFabAction(tab);
+  if(tab==="plantilla"){ renderRoster(); renderRosterRanking(); }
+  if(tab==="stats"){ renderCharts(); chartsNeedUpdate=false; renderCompCharts(); }
   if(tab==="tareas"){populateSessionCatFilter();renderSessions();renderTaskRanking();}
   if(tab==="desarrollo") renderDevPlayerGrid();
   if(tab==="comparar") renderComparator();
   if(tab==="competicion") renderCompeticion();
+  if(tab==="hoy"){ renderHoy(); renderCalendar(); }
 }
+
+// FAB context-aware action
+function handleFab(){
+  const actions = {
+    plantilla: ()=>openAddCard(),
+    tarjetas: ()=>openAddCard(),
+    competicion: ()=>openNewMatch(),
+    tareas: ()=>openNewSession(),
+    hoy: ()=>openDayModal(todayStr()),
+    desarrollo: ()=>null,
+    stats: ()=>null,
+    comparar: ()=>null
+  };
+  (actions[_currentTab]||actions.plantilla)();
+}
+
+function updateFabAction(tab){
+  const fab = document.getElementById('fab');
+  if(!fab) return;
+  const icons = { plantilla:'＋', tarjetas:'＋', competicion:'⚽', tareas:'📋' };
+  const noFab = ['stats','comparar','desarrollo'];
+  fab.style.display = (window.innerWidth<=768 && !noFab.includes(tab)) ? 'flex' : 'none';
+  fab.textContent = icons[tab]||'＋';
+}
+
+// ── ROSTER / PLANTILLA ──
+function setRosterPos(pos, btn){
+  _rosterPosFilter = pos;
+  document.querySelectorAll("[id^='rp-']").forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderRoster();
+}
+
+const PRESET_MOTIVOS = {
+  green: ['Esfuerzo extra','Actitud positiva','Gol/Asistencia','Liderazgo','Mejor del entreno'],
+  yellow: ['Falta de atención','Llega tarde','Bajo esfuerzo','Actitud negativa','Falta de respeto'],
+  red: ['Expulsión','Agresión','Falta grave','Abandono','Desobediencia']
+};
+
+let _qcsPlayerId = null;
+let _qcsType = 'green';
+let _qcsPts = 1;
+
+function openQuickCard(pid){
+  const p = getPlayer(pid);
+  if(!p) return;
+  const idx = data.players.findIndex(x=>x.id===pid);
+  _qcsPlayerId = pid;
+  _qcsType = 'green';
+  _qcsPts = 1;
+  document.getElementById('qcsPhoto').src = PHOTOS[idx]||'';
+  document.getElementById('qcsName').textContent = p.name;
+  const fl = filterLogs(p.logs);
+  const pts = fl.reduce((s,l)=>s+(l.type==='green'?l.pts:-l.pts),0);
+  const g=fl.filter(l=>l.type==='green').length, y=fl.filter(l=>l.type==='yellow').length, r=fl.filter(l=>l.type==='red').length;
+  const taskPtsMap = (typeof getTaskPoints==='function') ? getTaskPoints() : {};
+  const taskPts = taskPtsMap[pid]||0;
+  document.getElementById('qcsMeta').textContent = `${p.pos} · Tarjetas: ${pts>=0?'+':''}${pts} · Tareas: +${taskPts} · 🟢${g} 🟡${y} 🔴${r}`;
+  document.getElementById('qcsMotivo').value = '';
+  qcsSelType('green');
+  document.getElementById('quickCardSheet').classList.add('open');
+  setTimeout(()=>document.getElementById('quickCardSheet').addEventListener('click', qcsBackdropClose, {once:true}), 100);
+}
+
+function qcsBackdropClose(e){
+  if(e.target.id==='quickCardSheet') closeQuickCard();
+}
+
+function qcsSelType(t){
+  _qcsType = t;
+  ['green','yellow','red'].forEach(x=>{
+    document.getElementById('qt-'+x).classList.toggle('active', x===t);
+  });
+  // Update shortcut chips
+  const row = document.getElementById('qcsShortcuts');
+  row.innerHTML = PRESET_MOTIVOS[t].map(m=>`
+    <button onclick="document.getElementById('qcsMotivo').value='${m}'" 
+      style="padding:5px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);font-size:10px;cursor:pointer;letter-spacing:.5px;transition:.15s;"
+      onmouseenter="this.style.background='rgba(212,175,55,.1)';this.style.borderColor='rgba(212,175,55,.3)'"
+      onmouseleave="this.style.background='rgba(255,255,255,.04)';this.style.borderColor='rgba(255,255,255,.12)'">${m}</button>
+  `).join('');
+  // Suggest default pts
+  const defaultPts = {green:1, yellow:1, red:3};
+  qcsSetPts(defaultPts[t]);
+}
+
+function qcsSetPts(v){
+  _qcsPts = v;
+  document.querySelectorAll('.quick-pts-btn').forEach(b=>b.classList.toggle('active', parseInt(b.textContent)===v));
+  document.getElementById('qcsPts').value = '';
+}
+
+function closeQuickCard(){
+  document.getElementById('quickCardSheet').classList.remove('open');
+}
+
+function saveQuickCard(){
+  const p = getPlayer(_qcsPlayerId);
+  if(!p) return;
+  const motivo = document.getElementById('qcsMotivo').value.trim();
+  const customPts = parseFloat(document.getElementById('qcsPts').value);
+  const pts = !isNaN(customPts)&&customPts>0 ? customPts : _qcsPts;
+  if(!motivo){ document.getElementById('qcsMotivo').focus(); document.getElementById('qcsMotivo').style.borderColor='var(--red)'; return; }
+  document.getElementById('qcsMotivo').style.borderColor='';
+  p.logs.push({id:data.nextLogId++, type:_qcsType, motivo, pts, date:new Date().toLocaleDateString('es-ES')});
+  save(data);
+  render();
+  renderRoster();
+  closeQuickCard();
+  // Brief success flash
+  showToast(`✓ Tarjeta registrada — ${p.name}`);
+}
+
+function showToast(msg){
+  let t = document.getElementById('_toast');
+  if(!t){ t=document.createElement('div'); t.id='_toast'; t.style.cssText='position:fixed;bottom:calc(var(--bottom-nav-height,64px) + 16px);left:50%;transform:translateX(-50%);background:rgba(34,197,94,.95);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:30px;z-index:500;pointer-events:none;transition:opacity .3s;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.4);'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.opacity='1';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=>{ t.style.opacity='0'; },2200);
+}
+
+// ────────────────────────────────────────────────────────
+// ROSTER PROFILE — inline dev profile inside Plantilla tab
+// ────────────────────────────────────────────────────────
+let _activeRosterPid = null;
+
+function openRosterProfile(pid){
+  // If same player, toggle close
+  if(_activeRosterPid === pid){
+    closeRosterProfile();
+    return;
+  }
+  _activeRosterPid = pid;
+
+  // Hide grid + ranking so profile appears at top without scrolling
+  const grid = document.getElementById('rosterGrid');
+  const rankEl = document.getElementById('rosterRanking');
+  const filterEl = document.querySelector('#tab-plantilla .filter-bar');
+  if(grid) grid.style.display = 'none';
+  if(rankEl) rankEl.style.display = 'none';
+
+  const profileEl = document.getElementById('rosterProfile');
+  if(!profileEl) return;
+  profileEl.style.display = 'block';
+  profileEl.style.marginTop = '0';
+  profileEl.style.borderTop = 'none';
+  profileEl.style.paddingTop = '0';
+
+  // Scroll window to top so profile is immediately visible
+  window.scrollTo({top: 0, behavior: 'smooth'});
+
+  // Delegate to dev module rendering
+  const idx = data.players.findIndex(p=>p.id===pid);
+  const p = data.players[idx];
+  const pd = getDevP(pid);
+  currentDevPid = pid;
+  currentRatings = {...pd.ratings};
+
+  const cardPts = calcPts(p);
+  const tPts = (typeof getTaskPoints==="function"?getTaskPoints()[pid]:0)||0;
+  const cpColor = cardPts<0?"var(--red)":cardPts===0?"rgba(255,255,255,.3)":"var(--gold)";
+  const fl = filterLogs(p.logs);
+  const g = fl.filter(l=>l.type==="green").length;
+  const y = fl.filter(l=>l.type==="yellow").length;
+  const r = fl.filter(l=>l.type==="red").length;
+
+  profileEl.innerHTML = `
+    <!-- Back button -->
+    <button onclick="closeRosterProfile()" style="display:flex;align-items:center;gap:8px;background:none;border:none;color:rgba(255,255,255,.45);font-size:13px;letter-spacing:1px;cursor:pointer;padding:0 0 20px;font-family:'Montserrat',sans-serif;font-weight:600;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,.45)'">
+      <span style="font-size:18px;line-height:1;">←</span> VOLVER A PLANTILLA
+    </button>
+    <!-- Profile header -->
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:24px;flex-wrap:wrap;">
+      <img src="${PHOTOS[idx]}" style="width:80px;height:80px;object-fit:contain;border-radius:50%;border:2px solid var(--gold);background:#111;flex-shrink:0;"/>
+      <div style="flex:1;min-width:0;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold-light);letter-spacing:2px;">${p.name}</div>
+        <div style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.3);">${p.pos}</div>
+        <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">
+          ${g>0?`<span style="background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--green);">🟢 ${g}</span>`:''}
+          ${y>0?`<span style="background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.3);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--yellow);">🟡 ${y}</span>`:''}
+          ${r>0?`<span style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--red);">🔴 ${r}</span>`:''}
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+        <div style="text-align:center;background:var(--dark2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;">
+          <div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3);">TARJETAS</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:${cpColor};">${cardPts>=0?"+":""}${cardPts}</div>
+        </div>
+        <div style="text-align:center;background:var(--dark2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;">
+          <div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3);">TAREAS</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#6ab4ff;">+${tPts}</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dev grid -->
+    <div class="dev-grid">
+      <div class="dev-box">
+        <div class="stitle" style="border:none;margin:0 0 16px;padding:0;font-size:15px;">⭐ FICHA DE DESARROLLO</div>
+        <div id="dvRatings"></div>
+        <button onclick="saveSnap()" style="width:100%;padding:9px;background:var(--gold);color:var(--dark);border:none;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;cursor:pointer;margin-top:14px;">GUARDAR VALORACIÓN HOY</button>
+        <div style="font-size:9px;letter-spacing:1px;color:rgba(255,255,255,.2);margin:10px 0 6px;">HISTORIAL</div>
+        <div id="dvSnaps" style="max-height:130px;overflow-y:auto;"></div>
+      </div>
+      <div class="dev-box" style="display:flex;flex-direction:column;align-items:center;">
+        <div class="stitle" style="border:none;margin:0 0 14px;padding:0;align-self:flex-start;font-size:15px;">🕸️ RADAR</div>
+        <canvas id="dvRadar" style="max-width:280px;width:100%;"></canvas>
+      </div>
+      <div class="dev-box">
+        <div class="stitle" style="border:none;margin:0 0 12px;padding:0;font-size:15px;">🎯 OBJETIVOS</div>
+        <div id="dvObjs"></div>
+        <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;">
+          <input id="dvObjIn" type="text" placeholder="Nuevo objetivo..." style="flex:1;min-width:100px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:7px 10px;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;outline:none;"/>
+          <select id="dvObjCat" style="flex:1;min-width:80px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:7px 10px;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;outline:none;">
+            <option value="">Cat...</option>
+            <option>Técnica</option><option>Táctica</option><option>Físico</option><option>Actitud</option><option>Mental</option>
+          </select>
+          <button onclick="addObj()" style="padding:7px 14px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:6px;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:16px;cursor:pointer;">+</button>
+        </div>
+      </div>
+      <div class="dev-box">
+        <div class="stitle" style="border:none;margin:0 0 12px;padding:0;font-size:15px;">📝 NOTAS DEL ENTRENADOR</div>
+        <div id="dvNotes" style="max-height:180px;overflow-y:auto;margin-bottom:10px;"></div>
+        <div style="display:flex;gap:6px;align-items:flex-end;">
+          <textarea id="dvNoteIn" placeholder="Observación..." style="flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:8px 10px;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;outline:none;resize:vertical;min-height:56px;"></textarea>
+          <button onclick="addNote()" style="padding:7px 14px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:6px;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:16px;cursor:pointer;flex-shrink:0;">+</button>
+        </div>
+      </div>
+      <div class="dev-box dev-grid-full">
+        <div class="stitle" style="border:none;margin:0 0 14px;padding:0;font-size:15px;">🏆 STATS EN COMPETICIÓN</div>
+        <div id="dvCompStats"></div>
+      </div>
+      <div class="dev-box dev-grid-full">
+        <div class="stitle" style="border:none;margin:0 0 14px;padding:0;font-size:15px;">🟢 CLASIFICACIÓN DE TARJETAS</div>
+        <div id="dvCardRank"></div>
+      </div>
+    </div>
+  `;
+
+  // Render all sub-components
+  drawRatings();
+  drawObjs();
+  drawNotes();
+  drawSnaps();
+  setTimeout(drawRadar, 60);
+  setTimeout(()=>renderDevCompStats(pid), 80);
+  setTimeout(()=>renderInlineCardRank(pid), 80);
+}
+
+function closeRosterProfile(){
+  _activeRosterPid = null;
+  const profileEl = document.getElementById('rosterProfile');
+  if(profileEl){ profileEl.style.display='none'; profileEl.innerHTML=''; }
+  document.querySelectorAll('.roster-card').forEach(c=>{ c.style.borderColor=''; c.style.boxShadow=''; });
+  if(devRadar){ devRadar.destroy(); devRadar=null; }
+  currentDevPid = null;
+  // Restore grid and ranking
+  const grid = document.getElementById('rosterGrid');
+  const rankEl = document.getElementById('rosterRanking');
+  if(grid) grid.style.display = '';
+  if(rankEl) rankEl.style.display = '';
+}
+
+function renderInlineCardRank(pid){
+  const el = document.getElementById('dvCardRank');
+  if(!el) return;
+  const p = getPlayer(pid);
+  if(!p||!p.logs.length){ el.innerHTML='<div style="text-align:center;padding:20px;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:2px;">SIN TARJETAS</div>'; return; }
+  const totalPts = calcPts(p);
+  const tpColor = totalPts<0?"var(--red)":totalPts===0?"rgba(255,255,255,.35)":"var(--gold-light)";
+  el.innerHTML = `<div style="text-align:right;margin-bottom:14px;">
+    <span style="font-size:9px;letter-spacing:2px;color:rgba(245,240,232,.3);">TOTAL</span>
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:${tpColor};margin-left:8px;">${totalPts>=0?"+":""}${totalPts} pts</span>
+  </div>`+
+  [...p.logs].reverse().map(l=>{
+    const cc=l.type==="green"?"si-g":l.type==="yellow"?"si-y":"si-r";
+    const ptCol=l.type==="green"?"var(--green)":"var(--red)";
+    const sign=l.type==="green"?"+":"-";
+    return `<div class="log-entry">
+      <div class="log-card-icon ${cc}"></div>
+      <div class="log-motivo">
+        <div style="font-weight:600;font-size:12px;">${l.motivo}</div>
+        <div class="log-date">${l.date}</div>
+      </div>
+      <span class="log-pts" style="color:${ptCol}">${sign}${l.pts}</span>
+      <button class="delete-log" onclick="deleteLog(${p.id},${l.id})" title="Eliminar">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function renderRoster(){
+  const grid = document.getElementById('rosterGrid');
+  if(!grid) return;
+  const filtered = data.players.filter(p=>{
+    if(_rosterPosFilter==='all') return true;
+    if(_rosterPosFilter==='PO') return p.pos==='PO'||p.pos==='Portero';
+    if(_rosterPosFilter==='DEF') return ['DEF','CB','LB','RB','DC','CAR'].includes(p.pos);
+    if(_rosterPosFilter==='MC') return ['MC','MCD','MCO','CM','Centrocampista'].includes(p.pos);
+    if(_rosterPosFilter==='DEL') return ['DEL','EXT','DC','Delantero','EI','ED'].includes(p.pos);
+    return true;
+  });
+  grid.innerHTML = filtered.map(p=>{
+    const idx = data.players.indexOf(p);
+    const fl = filterLogs(p.logs);
+    const pts = fl.reduce((s,l)=>s+(l.type==='green'?l.pts:-l.pts),0);
+    const g = fl.filter(l=>l.type==='green').length;
+    const y = fl.filter(l=>l.type==='yellow').length;
+    const r = fl.filter(l=>l.type==='red').length;
+    const taskPtsAll = (typeof getTaskPoints==='function') ? getTaskPoints() : {};
+    const taskPts = taskPtsAll[p.id]||0;
+    const totalPts = pts + taskPts;
+    const ptsCls = totalPts>0?'roster-pts-pos':totalPts<0?'roster-pts-neg':'roster-pts-zero';
+    return `<div class="roster-card" id="rcard-${p.id}" style="transition:border-color .2s,box-shadow .2s;">
+      <div class="roster-photo-wrap" onclick="openRosterProfile(${p.id})" style="cursor:pointer;">
+        <img src="${PHOTOS[idx]}" alt="${p.name}" loading="lazy"/>
+
+      </div>
+      <div class="roster-info" onclick="openRosterProfile(${p.id})" style="cursor:pointer;">
+        <div class="roster-name">${p.name}</div>
+        <div class="roster-pos">${p.pos}</div>
+        <div class="roster-chips">
+          ${g>0?`<span class="roster-chip"><span style="font-size:11px;">🟢</span><span style="color:var(--green)">${g}</span></span>`:''}
+          ${y>0?`<span class="roster-chip"><span style="font-size:11px;">🟡</span><span style="color:var(--yellow)">${y}</span></span>`:''}
+          ${r>0?`<span class="roster-chip"><span style="font-size:11px;">🔴</span><span style="color:var(--red)">${r}</span></span>`:''}
+          ${!g&&!y&&!r?`<span style="font-size:9px;color:rgba(255,255,255,.2);">Sin tarjetas</span>`:''}
+        </div>
+      </div>
+      <div class="roster-actions">
+        <button class="roster-action-btn roster-green" onclick="event.stopPropagation();openQuickCard(${p.id});qcsSelType('green')" title="Tarjeta verde">🟢</button>
+        <button class="roster-action-btn roster-yellow" onclick="event.stopPropagation();openQuickCard(${p.id});qcsSelType('yellow')" title="Tarjeta amarilla">🟡</button>
+        <button class="roster-action-btn roster-red" onclick="event.stopPropagation();openQuickCard(${p.id});qcsSelType('red')" title="Tarjeta roja">🔴</button>
+        <button class="roster-action-btn" onclick="event.stopPropagation();openLog(${p.id})" title="Ver historial" style="font-size:13px;letter-spacing:.5px;color:rgba(255,255,255,.25);">HIST</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── ROSTER RANKING ──
+function setRosterRankFilter(mode, btn){
+  _rosterRankFilter = mode;
+  document.querySelectorAll('[id^="rrank-"]').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderRosterRanking();
+}
+
+function renderRosterRanking(){
+  const el = document.getElementById('rosterRankList'); if(!el) return;
+  const now = new Date();
+
+  // Card points — filter by month or all
+  function playerCardPts(p){
+    const logs = p.logs||[];
+    if(_rosterRankFilter==='mes'){
+      return logs.filter(l=>{
+        const d=new Date(l.date+'T12:00:00');
+        return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();
+      }).reduce((s,l)=>s+(l.type==='green'?l.pts:-l.pts),0);
+    }
+    return logs.reduce((s,l)=>s+(l.type==='green'?l.pts:-l.pts),0);
+  }
+
+  // Task points — filter by month
+  function playerTaskPts(pid){
+    const sessions = tdata.sessions||[];
+    const filtered = _rosterRankFilter==='mes'
+      ? sessions.filter(s=>{const d=new Date(s.date+'T12:00:00');return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();})
+      : sessions;
+    let pts=0;
+    filtered.forEach(s=>(s.tasks||[]).forEach(t=>{
+      (t.teams||[]).forEach(team=>{
+        if(team.winner && team.players.includes(pid)) pts+=t.pts||0;
+      });
+    }));
+    return pts;
+  }
+
+  const entries = data.players.map((p,idx)=>{
+    const cp = playerCardPts(p);
+    const tp = playerTaskPts(p.id);
+    return {p, idx, total: cp+tp, cp, tp};
+  }).sort((a,b)=>b.total-a.total);
+
+  const maxPts = Math.max(...entries.map(e=>Math.abs(e.total)), 1);
+  const medals = ['🥇','🥈','🥉'];
+
+  el.innerHTML = entries.map((e,i)=>{
+    const isTop = i<3;
+    const ptsColor = e.total>0?'var(--green)':e.total<0?'var(--red)':'rgba(255,255,255,.3)';
+    const barW = Math.abs(e.total)/maxPts*100;
+    const barColor = e.total>=0?'rgba(34,197,94,.4)':'rgba(239,68,68,.35)';
+    const size = i===0?'16px':i===1?'14px':i===2?'13px':'12px';
+    const opacity = i===0?1:i===1?.82:i===2?.68:Math.max(.35,1-(i*.08));
+    return `<div style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;background:${isTop?'rgba(255,255,255,.03)':'transparent'};margin-bottom:4px;opacity:${opacity};">
+      <span style="font-size:14px;width:24px;text-align:center;flex-shrink:0;">${medals[i]||`<span style="font-family:'Bebas Neue',sans-serif;font-size:12px;color:rgba(255,255,255,.3);">${i+1}</span>`}</span>
+      <img src="${PHOTOS[e.idx]}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:top;border:1.5px solid ${ptsColor};flex-shrink:0;"/>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:${size};font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${e.p.name}</div>
+        <div style="height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-top:3px;">
+          <div style="height:100%;background:${barColor};width:${barW}%;border-radius:2px;"></div>
+        </div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:${ptsColor};">${e.total>=0?'+':''}${e.total}</div>
+        <div style="font-size:8px;color:rgba(255,255,255,.2);">🃏${e.cp>=0?'+':''}${e.cp} 📋+${e.tp}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+
+// ════════════════════════════════════════════════════
+// HOY / PLAN — Data & State
+// ════════════════════════════════════════════════════
+function loadPlan(){return JSON.parse(localStorage.getItem('rm_plan')||'null')||{events:{}};}
+function savePlanData(){localStorage.setItem('rm_plan',JSON.stringify(planData));}
+let planData = loadPlan();
+
+let _calYear, _calMonth;
+(function(){ const n=new Date(); _calYear=n.getFullYear(); _calMonth=n.getMonth(); })();
+let _dayModalDate = null; // "YYYY-MM-DD"
+let _daySelType = null;
+
+function todayStr(){ return new Date().toISOString().split('T')[0]; }
+function dateStr(y,m,d){ return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
+
+// ── Render HOY briefing ──
+function renderHoy(){
+  const now = new Date();
+  const today = todayStr();
+  const DAYS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const MONTHS = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+  // Date badge
+  const badge = document.getElementById('hoyDateBadge');
+  if(badge) badge.innerHTML = `📅 ${DAYS[now.getDay()]}, ${now.getDate()} de ${MONTHS[now.getMonth()]} ${now.getFullYear()}`;
+
+  // --- Card 1: Sesión de hoy ---
+  const plan = planData.events[today];
+  const realSessions = (tdata.sessions||[]).filter(s=>s.date===today);
+  const todayMatches = (compData.matches||[]).filter(m=>m.date===today);
+
+  // --- Card 2: Próximo partido ---
+  const futureMatches = (compData.matches||[])
+    .filter(m=>m.date>today)
+    .sort((a,b)=>a.date.localeCompare(b.date));
+  const nextMatch = futureMatches[0]||null;
+
+  // --- Card 3: Próximo entrenamiento planificado ---
+  const futureEnt = Object.entries(planData.events)
+    .filter(([d,e])=>d>today&&e.type==='ent')
+    .sort((a,b)=>a[0].localeCompare(b[0]))[0]||null;
+
+  // --- Card 4: Resumen semanal ---
+  const weekStart = new Date(now); weekStart.setDate(now.getDate()-now.getDay()+1);
+  const weekEnd   = new Date(weekStart); weekEnd.setDate(weekStart.getDate()+6);
+  const ws = weekStart.toISOString().split('T')[0];
+  const we = weekEnd.toISOString().split('T')[0];
+  const weekSessions = (tdata.sessions||[]).filter(s=>s.date>=ws&&s.date<=we).length;
+  const weekMatchesC = (compData.matches||[]).filter(m=>m.date>=ws&&m.date<=we).length;
+
+  const grid = document.getElementById('hoyBriefingGrid');
+  if(!grid) return;
+
+  // Card: Hoy
+  let cardHoy = '';
+  if(realSessions.length){
+    cardHoy = `<div class="hoy-card"><div class="hoy-card-accent" style="background:var(--green);"></div>
+      <div class="hoy-card-label">HOY — SESIÓN REAL</div>
+      <div class="hoy-card-main" style="color:var(--green);">✅ ${realSessions.length} sesión${realSessions.length>1?'es':''} registrada${realSessions.length>1?'s':''}</div>
+      <div class="hoy-card-sub">${realSessions.reduce((s,ses)=>s+(ses.tasks||[]).length,0)} tareas completadas</div>
+    </div>`;
+  } else if(todayMatches.length){
+    const m=todayMatches[0]; const r=m.goalsFor>m.goalsAgainst?'Victoria':m.goalsFor<m.goalsAgainst?'Derrota':'Empate';
+    cardHoy = `<div class="hoy-card"><div class="hoy-card-accent" style="background:#a78bfa;"></div>
+      <div class="hoy-card-label">HOY — PARTIDO</div>
+      <div class="hoy-card-main" style="color:#a78bfa;">⚽ vs ${m.opponent}</div>
+      <div class="hoy-card-sub">${m.goalsFor}-${m.goalsAgainst} · ${r}</div>
+    </div>`;
+  } else if(plan){
+    const typeMap={ent:{icon:'🏃',label:'Entrenamiento',color:'#f59e0b'},par:{icon:'⚽',label:'Partido',color:'#6ab4ff'},des:{icon:'😴',label:'Descanso',color:'rgba(255,255,255,.4)'},lib:{icon:'🆓',label:'Libre',color:'rgba(255,255,255,.3)'}};
+    const t=typeMap[plan.type]||{icon:'📅',label:plan.type,color:'var(--gold)'};
+    cardHoy = `<div class="hoy-card" style="cursor:pointer;" onclick="openDayModal('${today}')">
+      <div class="hoy-card-accent" style="background:${t.color};"></div>
+      <div class="hoy-card-label">HOY — PLANIFICADO</div>
+      <div class="hoy-card-main" style="color:${t.color};">${t.icon} ${t.label}</div>
+      <div class="hoy-card-sub">${plan.notes||'Toca para ver detalles'}</div>
+    </div>`;
+  } else {
+    cardHoy = `<div class="hoy-card" style="cursor:pointer;border-style:dashed;opacity:.7;" onclick="openDayModal('${today}')">
+      <div class="hoy-card-accent" style="background:rgba(255,255,255,.1);"></div>
+      <div class="hoy-card-label">HOY</div>
+      <div class="hoy-card-main" style="color:rgba(255,255,255,.35);">Sin planificar</div>
+      <div class="hoy-card-sub">Toca para planificar el día</div>
+    </div>`;
+  }
+
+  // Card: Próximo partido
+  let cardPartido = '';
+  if(nextMatch){
+    const d=new Date(nextMatch.date+'T12:00:00');
+    const diff=Math.round((d-now)/(1000*60*60*24));
+    const diffLabel=diff===0?'HOY':diff===1?'MAÑANA':`EN ${diff} DÍAS`;
+    cardPartido = `<div class="hoy-card"><div class="hoy-card-accent" style="background:#6ab4ff;"></div>
+      <div class="hoy-card-label">PRÓXIMO PARTIDO</div>
+      <div class="hoy-card-main" style="color:#6ab4ff;">⚽ vs ${nextMatch.opponent}</div>
+      <div class="hoy-card-sub">${diffLabel} · ${nextMatch.competition||''} · ${d.toLocaleDateString('es-ES',{weekday:'short',day:'numeric',month:'short'})}</div>
+    </div>`;
+  } else if(futureEnt){
+    const d=new Date(futureEnt[0]+'T12:00:00');
+    const diff=Math.round((d-now)/(1000*60*60*24));
+    const diffLabel=diff===0?'HOY':diff===1?'MAÑANA':`EN ${diff} DÍAS`;
+    cardPartido = `<div class="hoy-card"><div class="hoy-card-accent" style="background:#f59e0b;"></div>
+      <div class="hoy-card-label">PRÓXIMO ENTRENO</div>
+      <div class="hoy-card-main" style="color:#f59e0b;">🏃 ${diffLabel}</div>
+      <div class="hoy-card-sub">${futureEnt[1].notes||d.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'short'})}</div>
+    </div>`;
+  } else {
+    cardPartido = `<div class="hoy-card" style="opacity:.4;">
+      <div class="hoy-card-accent" style="background:rgba(255,255,255,.1);"></div>
+      <div class="hoy-card-label">PRÓXIMO</div>
+      <div class="hoy-card-main" style="color:rgba(255,255,255,.3);">Sin planificar</div>
+      <div class="hoy-card-sub">Añade eventos en el calendario</div>
+    </div>`;
+  }
+
+  grid.innerHTML = cardHoy + cardPartido;
+
+  // --- Alertas jugadores sin tarjeta positiva en X días ---
+  renderHoyAlerts();
+}
+
+function renderHoyAlerts(){
+  const el = document.getElementById('hoyAlerts'); if(!el) return;
+  const THRESHOLD = 14; // días sin tarjeta positiva
+  const now = new Date();
+  const alerts = data.players.map((p,idx)=>{
+    const posLogs = (p.logs||[]).filter(l=>l.type==='green').sort((a,b)=>b.date.localeCompare(a.date));
+    let dias;
+    if(!posLogs.length){
+      dias = 999;
+    } else {
+      const last = new Date(posLogs[0].date+'T12:00:00');
+      dias = Math.round((now-last)/(1000*60*60*24));
+    }
+    return {p, idx, dias};
+  }).filter(e=>e.dias>=THRESHOLD).sort((a,b)=>b.dias-a.dias);
+
+  if(!alerts.length){
+    el.innerHTML = `<div class="hoy-alert-strip" style="background:rgba(34,197,94,.04);border-color:rgba(34,197,94,.12);">
+      <div class="hoy-alert-title" style="color:rgba(34,197,94,.7);">✅ EQUIPO AL DÍA</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.3);">Todos los jugadores tienen tarjeta positiva reciente.</div>
+    </div>`;
+    return;
+  }
+
+  el.innerHTML = `<div class="hoy-alert-strip">
+    <div class="hoy-alert-title">⚠️ SIN TARJETA POSITIVA (>=${THRESHOLD} DÍAS)</div>
+    ${alerts.slice(0,6).map(e=>`
+      <div class="hoy-alert-row">
+        <div class="hoy-alert-days">${e.dias===999?'—':e.dias}</div>
+        <img src="${PHOTOS[e.idx]}" style="width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:top;border:1.5px solid rgba(239,68,68,.4);flex-shrink:0;"/>
+        <div style="flex:1;font-size:13px;font-weight:600;">${e.p.name}</div>
+        <div style="font-size:10px;font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;color:rgba(255,255,255,.25);">${e.p.position||''}</div>
+      </div>
+    `).join('')}
+    ${alerts.length>6?`<div style="text-align:center;font-size:11px;color:rgba(255,255,255,.2);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;margin-top:6px;">+${alerts.length-6} MÁS</div>`:''}
+  </div>`;
+}
+
+// ── Calendar ──
+function calPrevMonth(){
+  _calMonth--;
+  if(_calMonth<0){_calMonth=11;_calYear--;}
+  renderCalendar();
+}
+function calNextMonth(){
+  _calMonth++;
+  if(_calMonth>11){_calMonth=0;_calYear++;}
+  renderCalendar();
+}
+
+function renderCalendar(){
+  const MONTH_NAMES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const titleEl = document.getElementById('calMonthTitle');
+  if(titleEl) titleEl.textContent = `${MONTH_NAMES[_calMonth]} ${_calYear}`;
+
+  const grid = document.getElementById('calGrid'); if(!grid) return;
+  const today = todayStr();
+  const now = new Date();
+
+  // First day of month (Mon=0..Sun=6)
+  const firstDay = new Date(_calYear, _calMonth, 1);
+  let startDow = firstDay.getDay(); // 0=Sun..6=Sat
+  startDow = (startDow===0)?6:startDow-1; // convert to Mon-based
+
+  const daysInMonth = new Date(_calYear, _calMonth+1, 0).getDate();
+
+  // Build sets of dates with real data
+  const realSessionDates = new Set((tdata.sessions||[]).map(s=>s.date));
+  const realMatchDates   = new Set((compData.matches||[]).map(m=>m.date));
+
+  let cells = '';
+  // Empty cells before first day
+  for(let i=0;i<startDow;i++){
+    cells += `<div class="cal-day cal-empty"></div>`;
+  }
+
+  for(let d=1;d<=daysInMonth;d++){
+    const ds = dateStr(_calYear, _calMonth, d);
+    const isToday = ds===today;
+    const isPast = ds<today;
+    const plan = planData.events[ds];
+    const hasSes = realSessionDates.has(ds);
+    const hasMat = realMatchDates.has(ds);
+
+    let classes = 'cal-day';
+    if(isToday) classes+=' cal-today';
+    else if(isPast) classes+=' cal-past';
+    if(plan){
+      if(plan.type==='ent') classes+=' type-ent';
+      else if(plan.type==='par') classes+=' type-par';
+      else if(plan.type==='des') classes+=' type-des';
+    }
+    if(hasSes||hasMat) classes+=' has-real';
+
+    let dots='';
+    if(plan&&plan.type==='ent') dots+=`<div class="cal-dot cal-dot-plan-ent" title="Entrenamiento"></div>`;
+    if(plan&&plan.type==='par') dots+=`<div class="cal-dot cal-dot-plan-par" title="Partido plan."></div>`;
+    if(plan&&plan.type==='des') dots+=`<div class="cal-dot cal-dot-plan-des" title="Descanso"></div>`;
+    if(hasSes) dots+=`<div class="cal-dot cal-dot-real-ses" title="Sesión real"></div>`;
+    if(hasMat) dots+=`<div class="cal-dot cal-dot-real-mat" title="Partido real"></div>`;
+
+    cells += `<div class="${classes}" onclick="openDayModal('${ds}')">
+      <div class="cal-day-num">${d}</div>
+      <div class="cal-dots">${dots}</div>
+    </div>`;
+  }
+  grid.innerHTML = cells;
+
+  // Monthly stats
+  renderCalMonthStats();
+}
+
+function renderCalMonthStats(){
+  const el = document.getElementById('calMonthStats'); if(!el) return;
+  const y=_calYear, m=_calMonth;
+  const prefix = `${y}-${String(m+1).padStart(2,'0')}`;
+
+  const plannedEnt = Object.entries(planData.events).filter(([d,e])=>d.startsWith(prefix)&&e.type==='ent').length;
+  const plannedPar = Object.entries(planData.events).filter(([d,e])=>d.startsWith(prefix)&&e.type==='par').length;
+  const realSes = (tdata.sessions||[]).filter(s=>s.date.startsWith(prefix)).length;
+  const realMat = (compData.matches||[]).filter(m=>m.date.startsWith(prefix)).length;
+  const compliance = plannedEnt>0 ? Math.round((realSes/plannedEnt)*100) : null;
+
+  el.innerHTML = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+    ${[
+      {v:plannedEnt, label:'PLANIF. ENTRENO', color:'#f59e0b'},
+      {v:plannedPar, label:'PLANIF. PARTIDO', color:'#6ab4ff'},
+      {v:realSes,    label:'SESIONES REALES', color:'var(--green)'},
+      {v:realMat,    label:'PARTIDOS REALES', color:'#a78bfa'},
+    ].map(item=>`
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:12px 10px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:${item.color};">${item.v}</div>
+        <div style="font-size:9px;font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;color:rgba(255,255,255,.3);line-height:1.2;">${item.label}</div>
+      </div>
+    `).join('')}
+  </div>
+  ${compliance!==null?`<div style="margin-top:10px;background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:13px;color:rgba(255,255,255,.5);">Cumplimiento de plan</span>
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:${compliance>=80?'var(--green)':compliance>=50?'#f59e0b':'var(--red)'};">${compliance}%</span>
+  </div>`:''}`;
+}
+
+// ── Day Modal ──
+function openDayModal(ds){
+  _dayModalDate = ds;
+  const plan = planData.events[ds]||{};
+  _daySelType = plan.type||null;
+
+  const d = new Date(ds+'T12:00:00');
+  const DAYS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const MONTHS=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const today = todayStr();
+  const sub = ds===today?'HOY':ds<today?'PASADO':'FUTURO';
+
+  document.getElementById('dayModalDate').textContent = `${DAYS[d.getDay()]}, ${d.getDate()} de ${MONTHS[d.getMonth()]}`;
+  document.getElementById('dayModalSub').textContent = sub;
+  document.getElementById('dayNotes').value = plan.notes||'';
+
+  // Active type button
+  ['ent','par','des','lib'].forEach(t=>{
+    const btn=document.getElementById('dbt-'+t);
+    if(btn){ btn.className='day-type-btn'; if(_daySelType===t) btn.className+=` active-${t}`; }
+  });
+
+  // Real data for that day
+  const realSes = (tdata.sessions||[]).filter(s=>s.date===ds);
+  const realMat = (compData.matches||[]).filter(m=>m.date===ds);
+  let realHtml = '';
+  if(realSes.length||realMat.length){
+    realHtml = `<div class="day-real-title">REGISTRADO ESTE DÍA</div>`;
+    realSes.forEach(s=>{
+      realHtml+=`<div class="day-real-item"><div class="ri-dot" style="background:var(--green);"></div><span>📋 Sesión: ${(s.tasks||[]).length} tareas</span><span style="margin-left:auto;font-size:11px;color:rgba(255,255,255,.3);">${(s.tasks||[]).reduce((acc,t)=>(t.teams||[]).reduce((a2,tm)=>a2+(tm.players||[]).length,acc),0)} participaciones</span></div>`;
+    });
+    realMat.forEach(m=>{
+      const r=m.goalsFor>m.goalsAgainst?'V':m.goalsFor<m.goalsAgainst?'D':'E';
+      const rColor=m.goalsFor>m.goalsAgainst?'var(--green)':m.goalsFor<m.goalsAgainst?'var(--red)':'#f59e0b';
+      realHtml+=`<div class="day-real-item"><div class="ri-dot" style="background:#a78bfa;"></div><span>⚽ vs ${m.opponent}</span><span style="margin-left:auto;font-family:'Bebas Neue',sans-serif;color:${rColor};">${m.goalsFor}-${m.goalsAgainst} ${r}</span></div>`;
+    });
+  }
+  document.getElementById('dayRealSection').innerHTML = realHtml;
+
+  document.getElementById('dayModal').classList.add('open');
+}
+
+function closeDayModal(){
+  document.getElementById('dayModal').classList.remove('open');
+  _dayModalDate=null; _daySelType=null;
+}
+
+function setDayType(type){
+  _daySelType = (_daySelType===type)?null:type;
+  ['ent','par','des','lib'].forEach(t=>{
+    const btn=document.getElementById('dbt-'+t);
+    if(btn){ btn.className='day-type-btn'; if(_daySelType===t) btn.className+=` active-${t}`; }
+  });
+}
+
+function saveDayPlan(){
+  if(!_dayModalDate) return;
+  const notes = document.getElementById('dayNotes').value.trim();
+  if(!_daySelType&&!notes){
+    delete planData.events[_dayModalDate];
+  } else {
+    planData.events[_dayModalDate] = { type:_daySelType, notes };
+  }
+  savePlanData();
+  closeDayModal();
+  renderCalendar();
+  renderHoy();
+}
+
+function clearDayPlan(){
+  if(!_dayModalDate) return;
+  delete planData.events[_dayModalDate];
+  savePlanData();
+  closeDayModal();
+  renderCalendar();
+  renderHoy();
+}
+
+window.addEventListener('resize', ()=>updateFabAction(_currentTab));
 
 // ── NEW SESSION ──
 let pendingSessionTasks = [];
@@ -817,6 +2371,11 @@ function openAddTaskToSession(){
   document.getElementById("tbPts").value = "";
   document.getElementById("tbPhotoPreview").style.display="none";
   document.getElementById("tbPhotoUploadLabel").style.display="flex";
+  const tbPhotoSec = document.getElementById("tbPhotoSection");
+  if(tbPhotoSec) tbPhotoSec.style.display="none";
+  const tbPhotoTog = document.getElementById("tbPhotoToggle");
+  if(tbPhotoTog) tbPhotoTog.textContent="📷 AÑADIR FOTO (opcional) ▼";
+  document.querySelectorAll('.pts-preset-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll(".team-num-btn").forEach(b=>b.classList.remove("active"));
   document.querySelector(".team-num-btn").classList.add("active");
   renderTeamsBuilder();
@@ -848,9 +2407,30 @@ function removeTaskPhoto(){
   tbTaskPhoto = null;
   document.getElementById("tbPhotoPreview").style.display="none";
   document.getElementById("tbPhotoUploadLabel").style.display="flex";
+  const tbPhotoSec = document.getElementById("tbPhotoSection");
+  if(tbPhotoSec) tbPhotoSec.style.display="none";
+  const tbPhotoTog = document.getElementById("tbPhotoToggle");
+  if(tbPhotoTog) tbPhotoTog.textContent="📷 AÑADIR FOTO (opcional) ▼";
+  document.querySelectorAll('.pts-preset-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById("tbPhotoInput").value="";
 }
 function closeTaskBuilder(){document.getElementById("taskBuilderModal").classList.remove("open");}
+
+function setTbPts(val){
+  document.getElementById("tbPts").value = val;
+  document.querySelectorAll(".pts-preset-btn").forEach(b=>{
+    b.classList.toggle("active", parseInt(b.textContent)===val);
+  });
+}
+
+function toggleTbPhoto(){
+  const sec = document.getElementById("tbPhotoSection");
+  const btn = document.getElementById("tbPhotoToggle");
+  if(!sec||!btn) return;
+  const isOpen = sec.style.display !== "none";
+  sec.style.display = isOpen ? "none" : "block";
+  btn.textContent = (isOpen ? "📷 AÑADIR FOTO (opcional) ▼" : "📷 AÑADIR FOTO (opcional) ▲");
+}
 
 function updateSubcats(){
   const catId = parseInt(document.getElementById("tbCat").value);
@@ -1054,6 +2634,8 @@ function setTaskWinner(sid, tid, teamIdx){
   saveTasks(tdata);
   renderViewSession(s);
   renderTaskRanking();
+  // Refresh roster points (task points shown on roster cards)
+  if(typeof renderRoster === 'function') renderRoster();
 }
 
 // ── TASK RANKING ──
@@ -1104,6 +2686,12 @@ function renderCharts(){
   const filter = document.getElementById("statFilter").value;
   const catFilter = document.getElementById("statCategory").value;
 
+  // Populate category filter
+  const catSel = document.getElementById("statCategory");
+  const curCat = catSel.value;
+  catSel.innerHTML = '<option value="all">Todas las categorías</option>' +
+    TASK_TAXONOMY.map(t=>`<option value="${t.id}" ${curCat==t.id?'selected':''}>${t.name}</option>`).join("");
+
   // Filter sessions
   let sessions = tdata.sessions;
   if(filter==="month"){
@@ -1113,21 +2701,12 @@ function renderCharts(){
       return d.getMonth()===now.getMonth() && d.getFullYear()===now.getFullYear();
     });
   }
-
-  // Populate category filter
-  const catSel = document.getElementById("statCategory");
-  const curCat = catSel.value;
-  catSel.innerHTML = '<option value="all">Todas las categorías</option>' +
-    TASK_TAXONOMY.map(t=>`<option value="${t.id}" ${curCat==t.id?'selected':''}>${t.name}</option>`).join("");
-
-  // Filter by category
   if(catFilter!=="all"){
     sessions = sessions.map(s=>({...s,tasks:s.tasks.filter(t=>t.catId==catFilter)}));
   }
 
-  // Compute points per player
-  const ptsMap = {};
-  const winsMap = {};
+  // Points + wins per player
+  const ptsMap = {}; const winsMap = {};
   data.players.forEach(p=>{ptsMap[p.id]=0;winsMap[p.id]=0;});
   sessions.forEach(s=>s.tasks.forEach(t=>{
     if(t.winnerId!==null){
@@ -1153,69 +2732,128 @@ function renderCharts(){
     s.tasks.forEach(t=>{if(t.winnerId!==null) monthData[key]+=t.pts;});
   });
   const monthLabels = Object.keys(monthData).sort();
-  const monthVals = monthLabels.map(k=>monthData[k]);
-  const monthLabelsFmt = monthLabels.map(k=>{
+  const monthVals   = monthLabels.map(k=>monthData[k]);
+  const monthFmt    = monthLabels.map(k=>{
     const [y,m]=k.split('-');
-    return new Date(+y,+m-1,1).toLocaleDateString('es-ES',{month:'short',year:'numeric'});
+    return new Date(+y,+m-1,1).toLocaleDateString('es-ES',{month:'short',year:'2-digit'});
   });
 
-  const chartDefaults = {
-    color:'rgba(255,255,255,0.7)',
-    plugins:{legend:{labels:{color:'rgba(255,255,255,0.6)',font:{family:"Montserrat",size:11}}}},
-    scales:{
-      x:{ticks:{color:'rgba(255,255,255,0.45)',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}},
-      y:{ticks:{color:'rgba(255,255,255,0.45)',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}}
-    }
-  };
+  // ── Helper: build a ranked leaderboard HTML ──
+  function leaderboard(containerId, title, icon, entries, valueLabel, barColor){
+    const el = document.getElementById(containerId);
+    if(!el) return;
+    const sorted = [...entries].sort((a,b)=>b.val-a.val);
+    const maxVal = sorted.length ? Math.max(sorted[0].val, 1) : 1;
+    const MEDALS = ['🥇','🥈','🥉'];
+    el.innerHTML = `
+      <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:14px;">
+        <span style="font-size:18px;">${icon}</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--gold-light);">${title}</span>
+      </div>
+      ${sorted.length===0?'<div style="text-align:center;padding:16px;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:2px;">SIN DATOS</div>':
+      sorted.map((e,i)=>{
+        const pct = Math.round((e.val/maxVal)*100);
+        // Scale: #1 = full color, rest dim based on rank
+        const opacity = i===0?1:i===1?.82:i===2?.68:Math.max(0.3, 0.6-i*0.08);
+        const fontSize = i===0?'20px':i===1?'17px':i===2?'15px':'13px';
+        return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:13px;min-width:20px;text-align:right;color:rgba(255,255,255,.25);">${MEDALS[i]||i+1}</span>
+          <img src="${PHOTOS[e.pi]}" style="width:${i<3?26:22}px;height:${i<3?26:22}px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid ${i===0?'var(--gold)':i===1?'rgba(255,255,255,.3)':i===2?'rgba(205,127,50,.6)':'rgba(255,255,255,.1)'};flex-shrink:0;"/>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:3px;">
+              <span style="font-size:${fontSize};font-weight:800;opacity:${opacity};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;">${e.name}</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:${fontSize};color:${barColor};opacity:${opacity};flex-shrink:0;">${e.val} <span style="font-size:9px;letter-spacing:1px;opacity:.6;">${valueLabel}</span></span>
+            </div>
+            <div style="height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;">
+              <div style="height:100%;width:${pct}%;background:${barColor};opacity:${opacity};border-radius:2px;transition:width .5s ease;"></div>
+            </div>
+          </div>
+        </div>`;
+      }).join('')}
+    `;
+  }
 
-  const playerNames = data.players.map(p=>p.name.split(' ')[0]);
-  const playerIds = data.players.map(p=>p.id);
-  const playerPtsArr = playerIds.map(id=>ptsMap[id]||0);
-  const playerWinsArr = playerIds.map(id=>winsMap[id]||0);
+  // ── Leaderboard: Puntos de tareas ──
+  const ptsEntries = data.players.map((p,pi)=>({pi,name:p.name.split(' ')[0]+'\n'+p.name.split(' ').slice(1).join(' '), val:ptsMap[p.id]||0})).filter(e=>e.val>0);
+  leaderboard('statLbPuntos','PUNTOS TAREAS','🏅',ptsEntries,'pts','var(--gold)');
+  if(document.getElementById('statLbPuntos')&&!ptsEntries.length) document.getElementById('statLbPuntos').innerHTML="<div style='font-family:Bebas Neue,sans-serif;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,.2);padding:20px;text-align:center;'>SIN DATOS AUN</div>";
 
-  // CHART 1: Player points
-  destroyChart('chartPlayers');
-  chartInstances['chartPlayers'] = new Chart(document.getElementById('chartPlayers'),{
-    type:'bar',
-    data:{
-      labels:playerNames,
-      datasets:[{label:'Puntos',data:playerPtsArr,backgroundColor:playerPtsArr.map(v=>v>0?'rgba(212,175,55,0.75)':'rgba(212,175,55,0.2)'),borderColor:'rgba(212,175,55,0.9)',borderWidth:1,borderRadius:4}]
-    },
-    options:{...chartDefaults,plugins:{...chartDefaults.plugins,legend:{display:false}},responsive:true}
-  });
+  // ── Leaderboard: Victorias ──
+  const winsEntries = data.players.map((p,pi)=>({pi,name:p.name.split(' ')[0], val:winsMap[p.id]||0})).filter(e=>e.val>0);
 
-  // CHART 2: Category points
+
+  // ── Leaderboard: Goles ──
+  const {playerMap:compPlayerMap} = getCompStats(null);
+  const golesEntries = data.players.map((p,pi)=>({pi,name:p.name.split(' ')[0], val:(compPlayerMap[p.id]?.goals)||0})).filter(e=>e.val>0);
+  leaderboard('statLbGoles','GOLES','⚽',golesEntries,'goles','var(--green)');
+
+  // ── Results summary ──
+  const {wins,draws,losses,matches} = getCompStats(null);
+  const resEl = document.getElementById('statResultsSummary');
+  if(resEl){
+    const total = matches.length;
+    const wPct = total?Math.round(wins/total*100):0;
+    const dPct = total?Math.round(draws/total*100):0;
+    const lPct = total?Math.round(losses/total*100):0;
+    resEl.innerHTML = `
+      <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:14px;">
+        <span style="font-size:18px;">📊</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--gold-light);">RESULTADOS COMPETICIÓN</span>
+        <span style="margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:13px;color:rgba(255,255,255,.25);">${total} PARTIDOS</span>
+      </div>
+      <div style="display:flex;height:12px;border-radius:6px;overflow:hidden;gap:2px;margin-bottom:10px;">
+        <div style="width:${wPct}%;background:var(--green);border-radius:6px 0 0 6px;transition:width .5s;"></div>
+        <div style="width:${dPct}%;background:var(--yellow);transition:width .5s;"></div>
+        <div style="width:${lPct}%;background:var(--red);border-radius:0 6px 6px 0;transition:width .5s;"></div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span style="font-size:11px;"><span style="color:var(--green);font-family:'Bebas Neue',sans-serif;font-size:22px;">${wins}</span> <span style="color:rgba(255,255,255,.4);">victorias ${wPct}%</span></span>
+        <span style="font-size:11px;"><span style="color:var(--yellow);font-family:'Bebas Neue',sans-serif;font-size:22px;">${draws}</span> <span style="color:rgba(255,255,255,.4);">empates ${dPct}%</span></span>
+        <span style="font-size:11px;"><span style="color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:22px;">${losses}</span> <span style="color:rgba(255,255,255,.4);">derrotas ${lPct}%</span></span>
+      </div>
+    `;
+  }
+
+  // ── Small donut for categories ──
   const nonZeroCats = TASK_TAXONOMY.filter(t=>(catPts[t.name]||0)>0);
+  const catColors = ['#d4af37','#6070e0','#22c55e','#ef4444','#eab308','#a78bfa','#38bdf8','#f472b6'];
   destroyChart('chartCategories');
   chartInstances['chartCategories'] = new Chart(document.getElementById('chartCategories'),{
     type:'doughnut',
     data:{
       labels:nonZeroCats.length?nonZeroCats.map(t=>t.name):['Sin datos'],
-      datasets:[{data:nonZeroCats.length?nonZeroCats.map(t=>catPts[t.name]):[1],backgroundColor:nonZeroCats.length?['#d4af37','#6070e0','#22c55e','#ef4444','#eab308','#a78bfa','#38bdf8','#f472b6']:['rgba(255,255,255,0.05)'],borderWidth:0}]
+      datasets:[{data:nonZeroCats.length?nonZeroCats.map(t=>catPts[t.name]):[1],backgroundColor:nonZeroCats.length?catColors.slice(0,nonZeroCats.length):['rgba(255,255,255,0.05)'],borderWidth:0,hoverOffset:4}]
     },
-    options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'rgba(255,255,255,0.6)',font:{family:"Montserrat",size:10},boxWidth:14}}}}
+    options:{responsive:false,cutout:'65%',plugins:{legend:{display:false}}}
   });
+  // Legend for donut
+  const legendEl = document.getElementById('statCatLegend');
+  if(legendEl){
+    legendEl.innerHTML = nonZeroCats.map((t,i)=>`
+      <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:${catColors[i]};flex-shrink:0;"></div>
+        <span style="color:rgba(255,255,255,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.name}</span>
+        <span style="margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:13px;color:${catColors[i]};">${catPts[t.name]}</span>
+      </div>
+    `).join('') || '<span style="color:rgba(255,255,255,.2);font-size:10px;">Sin datos</span>';
+  }
 
-  // CHART 3: Monthly evolution
+  // ── Monthly line chart (slim) ──
   destroyChart('chartEvolution');
   chartInstances['chartEvolution'] = new Chart(document.getElementById('chartEvolution'),{
     type:'line',
     data:{
-      labels:monthLabelsFmt.length?monthLabelsFmt:['Sin datos'],
-      datasets:[{label:'Puntos totales',data:monthVals.length?monthVals:[0],borderColor:'#d4af37',backgroundColor:'rgba(212,175,55,0.1)',tension:.4,fill:true,pointBackgroundColor:'#d4af37',pointRadius:5}]
+      labels:monthFmt.length?monthFmt:['Sin datos'],
+      datasets:[{data:monthVals.length?monthVals:[0],borderColor:'#d4af37',backgroundColor:'rgba(212,175,55,0.1)',tension:.4,fill:true,pointBackgroundColor:'#d4af37',pointRadius:4,pointHoverRadius:6}]
     },
-    options:{...chartDefaults,responsive:true}
-  });
-
-  // CHART 4: Wins
-  destroyChart('chartWins');
-  chartInstances['chartWins'] = new Chart(document.getElementById('chartWins'),{
-    type:'bar',
-    data:{
-      labels:playerNames,
-      datasets:[{label:'Victorias',data:playerWinsArr,backgroundColor:playerWinsArr.map(v=>v>0?'rgba(100,180,255,0.7)':'rgba(100,180,255,0.15)'),borderColor:'rgba(100,180,255,0.9)',borderWidth:1,borderRadius:4}]
-    },
-    options:{...chartDefaults,plugins:{...chartDefaults.plugins,legend:{display:false}},responsive:true}
+    options:{
+      responsive:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{color:'rgba(255,255,255,.4)',font:{size:9}},grid:{color:'rgba(255,255,255,.04)'}},
+        y:{ticks:{color:'rgba(255,255,255,.4)',font:{size:9}},grid:{color:'rgba(255,255,255,.04)'}}
+      }
+    }
   });
 }
 
@@ -1808,7 +3446,7 @@ function renderCompeticion(){
   renderCompSummary();
   renderMatchList();
   renderRankings();
-  renderTopScorers();
+  // renderTopScorers() removed - scorers now in Rankings section below
 }
 function renderTopScorers(){
   const tsEl = document.getElementById("compTopScorers");
@@ -1837,26 +3475,50 @@ function renderTopScorers(){
 }
 
 
-// ── Summary boxes ──
+// ── Summary strip ──
 function renderCompSummary(){
   const sEl = document.getElementById("compSummary");
   if(!sEl) return;
   const {wins,draws,losses,gf,ga,matches} = getCompStats('all');
   const pts = wins*3+draws;
-  const ppp = matches.length>0?(pts/matches.length).toFixed(2):'-';
-  const stats = [
-    {n:matches.length,l:"Partidos",c:"var(--white)"},
-    {n:wins,l:"Victorias",c:"var(--green)"},
-    {n:draws,l:"Empates",c:"var(--yellow)"},
-    {n:losses,l:"Derrotas",c:"var(--red)"},
-    {n:gf,l:"GF",c:"var(--gold)"},
-    {n:ga,l:"GC",c:"rgba(239,68,68,.8)"},
-    {n:ppp,l:"Pts / partido",c:"var(--gold-light)"}
-  ];
-  sEl.innerHTML = stats.map(s=>`<div class="comp-stat-box">
-    <div class="comp-stat-num" style="color:${s.c};">${s.n}</div>
-    <div class="comp-stat-label">${s.l}</div>
-  </div>`).join("");
+  const ppp = matches.length>0?(pts/matches.length).toFixed(1):'-';
+
+  // Forma: últimos 5 resultados
+  const sorted5 = [...compData.matches].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
+  const formDots = sorted5.map(m=>{
+    const r = m.goalsFor>m.goalsAgainst?'V':m.goalsFor<m.goalsAgainst?'D':'E';
+    const c = r==='V'?'var(--green)':r==='D'?'var(--red)':'var(--yellow)';
+    return `<span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:${c};font-family:'Bebas Neue',sans-serif;font-size:11px;color:#000;font-weight:900;border:1px solid ${c};">${r}</span>`;
+  }).join('');
+
+  // Racha actual
+  let streak=0, streakType='';
+  for(const m of sorted5){
+    const r=m.goalsFor>m.goalsAgainst?'V':m.goalsFor<m.goalsAgainst?'D':'E';
+    if(!streakType){streakType=r;streak=1;}
+    else if(r===streakType) streak++;
+    else break;
+  }
+  const streakColor=streakType==='V'?'var(--green)':streakType==='D'?'var(--red)':'var(--yellow)';
+  const streakLabel = streakType==='V'?`🔥 ${streak}V seguidas`:streakType==='D'?`${streak}D seguidas`:streakType?`${streak}E seguidas`:'';
+
+  sEl.className = '';
+  sEl.style.cssText = 'display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--dark2);';
+  sEl.innerHTML = `
+    <div class="comp-summary-cell"><div class="comp-summary-num" style="color:var(--gold-light)">${matches.length}</div><div class="comp-summary-lbl">Partidos</div></div>
+    <div class="comp-summary-cell"><div class="comp-summary-num" style="color:var(--green)">${wins}</div><div class="comp-summary-lbl">Victorias</div></div>
+    <div class="comp-summary-cell"><div class="comp-summary-num" style="color:var(--yellow)">${draws}</div><div class="comp-summary-lbl">Empates</div></div>
+    <div class="comp-summary-cell"><div class="comp-summary-num" style="color:var(--red)">${losses}</div><div class="comp-summary-lbl">Derrotas</div></div>
+    <div class="comp-summary-cell"><div class="comp-summary-num" style="color:var(--gold)">${gf}<span style="opacity:.3;font-size:16px;"> - </span>${ga}</div><div class="comp-summary-lbl">GF - GC</div></div>
+    <div class="comp-summary-cell" style="flex:2;min-width:150px;">
+      <div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap;justify-content:center;">
+        ${formDots||'<span style="font-size:9px;color:rgba(255,255,255,.2);">Sin partidos</span>'}
+        ${streakLabel?`<span style="font-size:9px;font-weight:700;color:${streakColor};margin-left:4px;">${streakLabel}</span>`:''}
+      </div>
+      <div class="comp-summary-lbl" style="margin-top:4px;">FORMA</div>
+    </div>
+    <div class="comp-summary-cell"><div class="comp-summary-num" style="color:var(--gold-light)">${ppp}</div><div class="comp-summary-lbl">Pts/Partido</div></div>
+  `;
 }
 
 // ── Match list ──
@@ -1884,34 +3546,71 @@ function renderMatchList(){
     const hasReport = m.report && Object.keys(m.report).length>0;
     const hasEvents = (m.events||[]).length>0;
 
-    // Build event timeline
+    // Goal type summary for card header
+    const evts = m.events||[];
+    const gCorner = evts.filter(e=>e.type==='goal'&&e.method==='corner').length;
+    const gFreekick = evts.filter(e=>e.type==='goal'&&e.method==='freekick').length;
+    const gPenalty = evts.filter(e=>e.type==='goal'&&e.method==='penalty').length;
+    const gOpen = m.goalsFor - gCorner - gFreekick - gPenalty;
+    const goalMethodChips = [
+      gOpen>0?`<span style="font-size:8px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);border-radius:3px;padding:1px 5px;color:rgba(34,197,94,.8);">⚽×${gOpen}</span>`:'',
+      gFreekick>0?`<span style="font-size:8px;background:rgba(106,180,255,.1);border:1px solid rgba(106,180,255,.25);border-radius:3px;padding:1px 5px;color:rgba(106,180,255,.8);">🎯×${gFreekick}</span>`:'',
+      gCorner>0?`<span style="font-size:8px;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.25);border-radius:3px;padding:1px 5px;color:rgba(234,179,8,.8);">🔄×${gCorner}</span>`:'',
+      gPenalty>0?`<span style="font-size:8px;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.25);border-radius:3px;padding:1px 5px;color:rgba(168,85,247,.8);">🥅×${gPenalty}</span>`:'',
+    ].filter(Boolean).join('');
+
+    // Build event timeline WITH running score
     const events = [...(m.events||[])].sort((a,b)=>a.minute-b.minute);
     let evTimelineHtml = '';
     if(events.length){
+      let runGF=0, runGA=0;
       evTimelineHtml = '<div class="ev-timeline">'+events.map(ev=>{
         let dotClass='', evContent='';
         if(ev.type==='goal'){
+          runGF++;
+          const scoreTag = `<span style="font-family:'Bebas Neue',sans-serif;font-size:16px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.35);border-radius:6px;padding:2px 8px;letter-spacing:1px;color:#4ade80;white-space:nowrap;">${runGF} - ${runGA}</span>`;
           dotClass='ev-dot-goal';
           const scorer = ev.scorerId!=null?data.players.find(p=>p.id===ev.scorerId):null;
           const asst   = ev.assistantId!=null?data.players.find(p=>p.id===ev.assistantId):null;
           const spi    = scorer?data.players.indexOf(scorer):-1;
           const api    = asst?data.players.indexOf(asst):-1;
-          const methodLabel = {corner:'🔄 Córner',freekick:'🎯 Falta',penalty:'🥅 Penalti'}[ev.method]||'';
-          evContent=`<div class="ev-players">
-            ${scorer&&spi>=0?`<img class="ev-avatar" src="${PHOTOS[spi]}" style="border-color:rgba(34,197,94,.5);"/>
-            <div><div class="ev-pname">${scorer.name.split(' ')[0]}</div>
-            ${asst&&api>=0?`<div class="ev-detail">🅰️ ${asst.name.split(' ')[0]}</div>`:''}
-            ${methodLabel?`<div class="ev-detail">${methodLabel}</div>`:''}</div>`:'<div class="ev-pname" style="color:rgba(255,255,255,.3)">Gol propio?</div>'}
+          const METHOD_BADGES = {corner:'🔄 CÓRNER',freekick:'🎯 FALTA DIRECTA',penalty:'🥅 PENALTI'};
+          const METHOD_COLORS = {corner:'rgba(234,179,8,.7)',freekick:'rgba(106,180,255,.7)',penalty:'rgba(168,85,247,.7)'};
+          const methodKey = ev.method||'open';
+          const methodLabel = METHOD_BADGES[methodKey]||'⚽ JUGADA';
+          const methodColor = METHOD_COLORS[methodKey]||'rgba(34,197,94,.6)';
+          evContent=`<div style="flex:1;display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:7px;">
+              ${scorer&&spi>=0?`<img class="ev-avatar" src="${PHOTOS[spi]}" style="border-color:rgba(34,197,94,.7);width:28px;height:28px;"/>
+              <div>
+                <div class="ev-pname" style="font-size:12px;font-weight:800;">${scorer.name.split(' ')[0]}</div>
+                ${asst&&api>=0?`<div class="ev-detail" style="color:#6ab4ff;">🅰️ ${asst.name.split(' ')[0]}</div>`:''}
+              </div>`:
+              `<div style="width:28px;height:28px;border-radius:50%;background:rgba(34,197,94,.15);border:1px dashed rgba(34,197,94,.3);display:flex;align-items:center;justify-content:center;font-size:10px;">?</div>
+              <div class="ev-pname" style="color:rgba(255,255,255,.4);">Gol propio</div>`}
+            </div>
+            <span style="display:inline-flex;align-items:center;gap:4px;background:${methodColor};border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.5px;color:#fff;width:fit-content;">${methodLabel}</span>
           </div>
-          <div style="margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--green);letter-spacing:1px;">⚽ GOL</div>`;
-        } else if(ev.type==='goalAgainst'){
-          dotClass='ev-dot-against';
-          const methodLabel = {corner:'🔄 Córner',freekick:'🎯 Falta',penalty:'🥅 Penalti'}[ev.method]||'';
-          evContent=`<div class="ev-players">
-            <div style="width:26px;height:26px;border-radius:50%;background:rgba(239,68,68,.2);border:2px solid rgba(239,68,68,.4);display:flex;align-items:center;justify-content:center;font-size:12px;">🔴</div>
-            <div><div class="ev-pname" style="color:rgba(239,68,68,.8);">Gol en contra</div>
-            ${methodLabel?`<div class="ev-detail">${methodLabel}</div>`:''}</div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;margin-left:8px;">
+            ${scoreTag}
           </div>`;
+        } else if(ev.type==='goalAgainst'){
+          runGA++;
+          const scoreTag = `<span style="font-family:'Bebas Neue',sans-serif;font-size:16px;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);border-radius:6px;padding:2px 8px;letter-spacing:1px;color:#f87171;white-space:nowrap;">${runGF} - ${runGA}</span>`;
+          dotClass='ev-dot-against';
+          const AGAINST_BADGES = {corner:'🔄 CÓRNER',freekick:'🎯 FALTA DIRECTA',penalty:'🥅 PENALTI'};
+          const AGAINST_COLORS = {corner:'rgba(234,179,8,.5)',freekick:'rgba(168,85,247,.5)',penalty:'rgba(239,68,68,.7)'};
+          const aMethodKey = ev.method||'open';
+          const aMethodLabel = AGAINST_BADGES[aMethodKey]||'⚽ JUGADA RIVAL';
+          const aMethodColor = AGAINST_COLORS[aMethodKey]||'rgba(239,68,68,.5)';
+          evContent=`<div style="flex:1;display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:7px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(239,68,68,.2);border:2px solid rgba(239,68,68,.45);display:flex;align-items:center;justify-content:center;font-size:14px;">🔴</div>
+              <div class="ev-pname" style="color:rgba(239,68,68,.9);font-size:12px;font-weight:700;">Gol en contra</div>
+            </div>
+            <span style="display:inline-flex;align-items:center;gap:4px;background:${aMethodColor};border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.5px;color:#fff;width:fit-content;">${aMethodLabel}</span>
+          </div>
+          <div style="flex-shrink:0;margin-left:8px;">${scoreTag}</div>`;
         } else if(ev.type==='sub'){
           dotClass='ev-dot-sub';
           const outP = ev.outId!=null?data.players.find(p=>p.id===ev.outId):null;
@@ -1940,18 +3639,76 @@ function renderMatchList(){
       evTimelineHtml = '<div style="font-size:9px;color:rgba(255,255,255,.2);letter-spacing:2px;padding:12px 0;">SIN EVENTOS REGISTRADOS</div>';
     }
 
-    // Lineup row
-    const lineupHtml = (m.lineup||[]).map(pid=>{
-      const pi=data.players.findIndex(p=>p.id===pid); if(pi<0) return '';
-      const mins=minMap[pid]||50;
-      const isCap = pid===m.captainId;
-      return `<span style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.04);border:1px solid ${isCap?'rgba(212,175,55,.4)':'var(--border)'};border-radius:14px;padding:3px 8px 3px 4px;margin:2px;position:relative;">
-        <img src="${PHOTOS[pi]}" style="width:18px;height:18px;border-radius:50%;object-fit:cover;object-position:top;"/>
-        ${isCap?'<span style="position:absolute;top:-4px;left:0px;background:var(--gold);color:var(--dark);border-radius:50%;width:9px;height:9px;font-size:5px;font-weight:900;display:flex;align-items:center;justify-content:center;">C</span>':''}
-        <span style="font-size:9px;font-weight:700;">${data.players[pi].name.split(' ')[0]}</span>
-        <span style="font-size:8px;color:rgba(255,255,255,.3);">${mins}'</span>
-      </span>`;
-    }).join('');
+    // Build inline campograma for match details
+    const pitchLineupHtml = (()=>{
+      const formation = m.formation||'1-3-1-2';
+      const slots = FORMATIONS[formation]||FORMATIONS['1-3-1-2'];
+      const pitchSlots = m.pitchSlots||{};
+      const PW=300, PH=210;
+      // Pitch SVG background
+      const svgBg = `
+        <rect width="${PW}" height="${PH}" rx="8" fill="#1a3a1a"/>
+        <rect x="4" y="4" width="${PW-8}" height="${PH-8}" rx="6" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+        <line x1="${PW/2}" y1="4" x2="${PW/2}" y2="${PH-4}" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <circle cx="${PW/2}" cy="${PH/2}" r="28" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <circle cx="${PW/2}" cy="${PH/2}" r="2" fill="rgba(255,255,255,.2)"/>
+        <rect x="4" y="${PH/2-25}" width="30" height="50" rx="2" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <rect x="${PW-34}" y="${PH/2-25}" width="30" height="50" rx="2" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+      `;
+      // Player tokens on pitch
+      const tokens = slots.map(slot=>{
+        const pid = pitchSlots[slot.id];
+        if(!pid) return '';
+        const pi = data.players.findIndex(p=>p.id===pid);
+        if(pi<0) return '';
+        const pl = data.players[pi];
+        const isCap = pid===m.captainId;
+        const cx = slot.x/100*PW;
+        const cy = slot.y/100*PH;
+        const imgSize=22;
+        return `<g transform="translate(${cx},${cy})">
+          <circle r="${imgSize/2+2}" fill="${isCap?'rgba(212,175,55,.4)':'rgba(0,0,0,.5)'}" stroke="${isCap?'#d4af37':'rgba(255,255,255,.25)'}" stroke-width="1.5"/>
+          <clipPath id="cp-${pid}-${m.id}"><circle r="${imgSize/2}"/></clipPath>
+          <image href="${PHOTOS[pi]}" x="-${imgSize/2}" y="-${imgSize/2}" width="${imgSize}" height="${imgSize}" clip-path="url(#cp-${pid}-${m.id})" preserveAspectRatio="xMidYMin slice"/>
+          <text y="${imgSize/2+9}" text-anchor="middle" fill="white" font-size="6" font-family="Montserrat" font-weight="700" style="text-shadow:0 1px 2px #000;">${pl.name.split(' ')[0].substring(0,7)}</text>
+          <text y="${imgSize/2+17}" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="5" font-family="Montserrat">${(minMap[pid]||0)>0?(minMap[pid]||0)+"'":''}</text>
+          ${isCap?`<circle r="4" cx="${imgSize/2-2}" cy="-${imgSize/2-1}" fill="#d4af37"/><text x="${imgSize/2-2}" y="-${imgSize/2-1}" text-anchor="middle" dominant-baseline="central" fill="#111" font-size="4" font-weight="900">C</text>`:'' }
+        </g>`;
+      }).join('');
+      // Notes overlaid at bottom of pitch
+      const notesOverlay = m.notes ? `
+        <rect x="8" y="${PH-28}" width="${PW-16}" height="20" rx="3" fill="rgba(0,0,0,.55)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <text x="14" y="${PH-15}" fill="rgba(255,255,255,.55)" font-size="7" font-family="Montserrat" font-weight="500">${m.notes.substring(0,55)}${m.notes.length>55?'…':''}</text>
+      ` : '';
+      // Full pitch SVG
+      const pitchSvg = `<svg viewBox="0 0 ${PW} ${PH}" width="100%" style="border-radius:8px;display:block;">${svgBg}${tokens}${notesOverlay}</svg>`;
+      
+      // Bench players (not in pitch slots)
+      const inPitch = new Set(Object.values(pitchSlots).filter(Boolean));
+      const bench = (m.lineup||[]).filter(pid=>!inPitch.has(pid));
+      const benchHtml = bench.length ? `
+        <div style="margin-top:8px;">
+          <div style="font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.25);margin-bottom:5px;padding-left:2px;">SUPLENTES</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;">
+            ${bench.map(pid=>{
+              const pi=data.players.findIndex(p=>p.id===pid); if(pi<0) return '';
+              const mins=minMap[pid]||0;
+              return `<span style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:3px 8px 3px 4px;">
+                <img src="${PHOTOS[pi]}" style="width:16px;height:16px;border-radius:50%;object-fit:cover;object-position:top;opacity:.7;"/>
+                <span style="font-size:9px;color:rgba(255,255,255,.5);">${data.players[pi].name.split(' ')[0]}</span>
+                ${mins>0?`<span style="font-size:8px;color:#6ab4ff;">${mins}'</span>`:''}
+              </span>`;
+            }).join('')}
+          </div>
+        </div>
+      ` : '';
+      
+      if(!Object.values(pitchSlots).some(Boolean) && !(m.lineup||[]).length) return '';
+      return `<div>
+        <div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3);margin-bottom:6px;">⬛ ALINEACIÓN · ${m.formation||''}</div>
+        ${pitchSvg}${benchHtml}
+      </div>`;
+    })();
 
     // Report preview badges
     let reportPreviewHtml = '';
@@ -1973,25 +3730,33 @@ function renderMatchList(){
         }).join('')+'</div></div>';
     }
 
-    return `<div class="comp-match-card" id="mc-${m.id}">
-      <div class="comp-match-header" onclick="toggleMatchDetails(${m.id})">
-        <span class="comp-comp-badge ${badgeClass}">${m.competition}</span>
-        <span class="comp-venue">${m.venue==='local'?'🏠 LOCAL':'✈️ FUERA'}</span>
-        <div class="comp-score">
-          <span class="comp-score-num ${rClass}">${m.goalsFor}</span>
-          <span class="comp-score-sep">-</span>
-          <span class="comp-score-num">${m.goalsAgainst}</span>
+    const resultLabel = {win:'V',draw:'E',loss:'D'}[result];
+    const resultPillCls = {win:'mrp-win',draw:'mrp-draw',loss:'mrp-loss'}[result];
+    return `<div class="match-card-v2" id="mc-${m.id}">
+      <div class="match-card-header-v2" onclick="toggleMatchDetails(${m.id})">
+        <!-- Score block -->
+        <div class="match-score-block">
+          <div class="match-score-big"><span class="${rClass}">${m.goalsFor}</span><span class="match-score-sep"> - </span><span>${m.goalsAgainst}</span></div>
+          <div class="match-result-pill ${resultPillCls}">${resultLabel}</div>
         </div>
-        <div style="flex:1;min-width:0;">
-          <div class="comp-opponent">vs ${m.opponent}</div>
-          <div class="comp-date">${dateStr} · <span style="font-weight:700;color:${rColor};">${rLabel}</span>
-            ${hasReport?'<span style="margin-left:6px;font-size:8px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.25);border-radius:3px;padding:1px 5px;color:var(--gold);letter-spacing:1px;">📋</span>':''}
+        <!-- Info block -->
+        <div class="match-meta-block">
+          <div class="match-rival">vs ${m.opponent}</div>
+          <div class="match-submeta">
+            <span class="comp-comp-badge ${badgeClass}">${m.competition}</span>
+            <span>${dateStr}</span>
+            <span>${m.venue==='local'?'🏠':'✈️'} ${m.venue==='local'?'Local':'Fuera'}</span>
+            ${goalMethodChips?`<span style="display:inline-flex;gap:2px;">${goalMethodChips}</span>`:''}
+            ${hasReport?'<span style="background:rgba(212,175,55,.15);color:var(--gold);border:1px solid rgba(212,175,55,.3);border-radius:3px;padding:1px 6px;font-size:8px;letter-spacing:1px;">📋</span>':''}
           </div>
         </div>
-        <button onclick="event.stopPropagation();openMatchReport(${m.id})" style="background:${hasReport?'rgba(212,175,55,.15)':'rgba(255,255,255,.05)'};border:1px solid ${hasReport?'rgba(212,175,55,.4)':'rgba(255,255,255,.12)'};color:${hasReport?'var(--gold)':'rgba(255,255,255,.35)'};cursor:pointer;font-size:10px;padding:5px 10px;border-radius:6px;letter-spacing:1px;transition:.15s;white-space:nowrap;" ${!hasEvents?'disabled title="Añade eventos al partido para crear un informe"':''} onmouseover="if(${hasEvents})this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='${hasReport?'rgba(212,175,55,.4)':'rgba(255,255,255,.12)'}'">📋 INFORME</button>
-        <button onclick="event.stopPropagation();deleteMatch(${m.id})" style="background:none;border:none;color:rgba(239,68,68,.4);cursor:pointer;font-size:15px;padding:4px 6px;border-radius:5px;transition:.15s;" onmouseover="this.style.color='var(--red)';this.style.background='rgba(239,68,68,.1)'" onmouseout="this.style.color='rgba(239,68,68,.4)';this.style.background='none'">🗑</button>
-        <span style="color:rgba(255,255,255,.2);font-size:12px;">${isOpen?'▲':'▼'}</span>
-      </div>
+        <!-- Actions -->
+        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
+          <button onclick="event.stopPropagation();openMatchReport(${m.id})" title="Informe" style="background:${hasReport?'rgba(212,175,55,.15)':'rgba(255,255,255,.04)'};border:1px solid ${hasReport?'rgba(212,175,55,.35)':'rgba(255,255,255,.1)'};color:${hasReport?'var(--gold)':'rgba(255,255,255,.3)'};padding:6px 10px;border-radius:7px;font-size:11px;cursor:pointer;transition:.15s;" ${!hasEvents?'disabled':''}>📋</button>
+          <button onclick="event.stopPropagation();deleteMatch(${m.id})" style="background:none;border:none;color:rgba(239,68,68,.35);font-size:16px;padding:4px 5px;cursor:pointer;transition:.15s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='rgba(239,68,68,.35)'">🗑</button>
+          <span style="color:rgba(255,255,255,.2);font-size:11px;">${isOpen?'▲':'▼'}</span>
+        </div>
+      </div>      </div>
       <div class="comp-details ${isOpen?'open':''}">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
           <!-- Left: Event timeline -->
@@ -1999,10 +3764,9 @@ function renderMatchList(){
             <div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3);margin-bottom:10px;">⏱ LÍNEA DE EVENTOS</div>
             ${evTimelineHtml}
           </div>
-          <!-- Right: Lineup + Notes -->
+          <!-- Right: Campograma + bench + notes + report -->
           <div>
-            ${lineupHtml?`<div style="margin-bottom:14px;"><div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3);margin-bottom:7px;">👕 ALINEACIÓN · ${m.formation||''}</div>${lineupHtml}</div>`:''}
-            ${m.notes?`<div style="font-size:11px;color:rgba(255,255,255,.4);border-top:1px solid var(--border);padding-top:10px;line-height:1.6;">📝 ${m.notes}</div>`:''}
+            ${pitchLineupHtml}
             ${reportPreviewHtml}
           </div>
         </div>
@@ -2065,49 +3829,101 @@ function renderReportRows(){
   const m = compData.matches.find(x=>x.id===reportMatchId); if(!m) return;
   const el = document.getElementById('reportPlayerRows'); if(!el) return;
   const lineup = m.lineup||[];
-  el.innerHTML = lineup.map(pid=>{
+  const inPitch = new Set(Object.values(m.pitchSlots||{}).filter(Boolean));
+  const starters = lineup.filter(pid=>inPitch.has(pid));
+  const subs = lineup.filter(pid=>!inPitch.has(pid));
+
+  // Match summary strip
+  const evts = m.events||[];
+  const goals = evts.filter(e=>e.type==='goal').length;
+  const goalsAgainst = evts.filter(e=>e.type==='goalAgainst').length;
+  const subs_count = evts.filter(e=>e.type==='sub').length;
+  const corners = evts.filter(e=>e.type==='goal'&&e.method==='corner').length;
+  const penalties = evts.filter(e=>e.type==='goal'&&e.method==='penalty').length;
+  const freekicks = evts.filter(e=>e.type==='goal'&&e.method==='freekick').length;
+  const openPlay = goals - corners - penalties - freekicks;
+  const totalMins = lineup.reduce((s,pid)=>s+(m.minutesMap||{})[pid]||0, 0)||lineup.length*(m.duration||50);
+
+  const summaryStrip = `
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px;">
+    ${[
+      {v:goals,l:'GOLES A FAVOR',c:'var(--green)'},
+      {v:goalsAgainst,l:'GOLES EN CONTRA',c:'var(--red)'},
+      {v:subs_count,l:'CAMBIOS',c:'#6ab4ff'},
+      {v:lineup.length,l:'JUGADORES',c:'var(--gold)'},
+    ].map(s=>`<div style="background:var(--dark3);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:${s.c};line-height:1;">${s.v}</div>
+      <div style="font-size:7px;letter-spacing:1.5px;color:rgba(255,255,255,.3);margin-top:2px;">${s.l}</div>
+    </div>`).join('')}
+  </div>
+  ${goals>0?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
+    <span style="font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.25);align-self:center;margin-right:4px;">TIPO GOLES:</span>
+    ${openPlay>0?`<span style="background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:var(--green);">⚽ Jugada ×${openPlay}</span>`:''}
+    ${corners>0?`<span style="background:rgba(234,179,8,.12);border:1px solid rgba(234,179,8,.3);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#eab308;">🔄 Córner ×${corners}</span>`:''}
+    ${freekicks>0?`<span style="background:rgba(106,180,255,.12);border:1px solid rgba(106,180,255,.3);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#6ab4ff;">🎯 Falta ×${freekicks}</span>`:''}
+    ${penalties>0?`<span style="background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.35);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#a78bfa;">🥅 Penalti ×${penalties}</span>`:''}
+  </div>`:''}`;
+
+  function playerCard(pid, isStarter){
     const pi = data.players.findIndex(p=>p.id===pid); if(pi<0) return '';
     const p  = data.players[pi];
     const r  = reportData[pid]||{rubrica:null,evolucion:null};
     const isCap = pid===m.captainId;
+    const mins = (m.minutesMap||{})[pid]||0;
+    const pGoals = evts.filter(e=>e.type==='goal'&&e.scorerId===pid).length;
+    const pAssists = evts.filter(e=>e.type==='goal'&&e.assistantId===pid).length;
+
+    const rubricaColor = r.rubrica>=4?'var(--green)':r.rubrica===3?'var(--gold)':r.rubrica?'var(--red)':'rgba(255,255,255,.15)';
+    const rubricaBg = r.rubrica>=4?'rgba(34,197,94,.06)':r.rubrica===3?'rgba(212,175,55,.06)':r.rubrica?'rgba(239,68,68,.06)':'transparent';
+    const evolSymbols = {up:'↑',flat:'→',down:'↓'};
+    const evolColors  = {up:'var(--green)',flat:'#6ab4ff',down:'var(--red)'};
 
     const rubricaBtns = [1,2,3,4,5].map(n=>
       `<button class="rubrica-btn ${r.rubrica===n?'active':''}" onclick="setRubrica(${pid},${n})">${n}</button>`
     ).join('');
-
     const evolBtns =
-      `<button class="evol-btn ${r.evolucion==='up'?'active-up':''}" onclick="setEvol(${pid},'up')" title="Evolución ascendente">↑</button>` +
-      `<button class="evol-btn ${r.evolucion==='flat'?'active-flat':''}" onclick="setEvol(${pid},'flat')" title="Evolución lineal">→</button>` +
-      `<button class="evol-btn ${r.evolucion==='down'?'active-down':''}" onclick="setEvol(${pid},'down')" title="Evolución descendente">↓</button>`;
+      `<button class="evol-btn ${r.evolucion==='up'?'active-up':''}" onclick="setEvol(${pid},'up')">↑</button>` +
+      `<button class="evol-btn ${r.evolucion==='flat'?'active-flat':''}" onclick="setEvol(${pid},'flat')">→</button>` +
+      `<button class="evol-btn ${r.evolucion==='down'?'active-down':''}" onclick="setEvol(${pid},'down')">↓</button>`;
 
-    // Mini event count for this player
-    const goals = (m.events||[]).filter(e=>e.type==='goal'&&e.scorerId===pid).length;
-    const assists = (m.events||[]).filter(e=>e.type==='goal'&&e.assistantId===pid).length;
-    const mins = (m.minutesMap||{})[pid]||m.duration||50;
-
-    return `<div class="report-player-row">
-      <img src="${PHOTOS[pi]}" style="width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid ${isCap?'var(--gold)':'var(--border)'};flex-shrink:0;"/>
-      <div style="flex:1;min-width:0;">
-        <div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">
-          ${p.name}
-          ${isCap?'<span style="font-size:7px;background:var(--gold);color:var(--dark);border-radius:3px;padding:1px 4px;font-weight:900;">CAP</span>':''}
-          ${goals>0?`<span style="font-size:9px;color:var(--green);">⚽${goals}</span>`:''}
-          ${assists>0?`<span style="font-size:9px;color:#6ab4ff;">🅰️${assists}</span>`:''}
+    return `<div class="report-player-row" style="background:${rubricaBg};border:1px solid ${rubricaColor};border-radius:10px;margin-bottom:8px;padding:10px 14px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;width:100%;">
+        <!-- Photo + rating circle -->
+        <div style="position:relative;flex-shrink:0;">
+          <img src="${PHOTOS[pi]}" style="width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid ${rubricaColor};"/>
+          ${r.rubrica?`<div style="position:absolute;bottom:-2px;right:-3px;width:16px;height:16px;border-radius:50%;background:${rubricaColor};display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:10px;color:#000;font-weight:900;">${r.rubrica}</div>`:''}
+          ${isCap?`<div style="position:absolute;top:-3px;left:-3px;width:14px;height:14px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:900;color:var(--dark);">C</div>`:''}
         </div>
-        <div style="font-size:9px;color:rgba(255,255,255,.3);">${mins}' jugados</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-        <div style="display:flex;align-items:center;gap:4px;">
-          <span style="font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.3);margin-right:4px;">RÚBRICA</span>
-          ${rubricaBtns}
+        <!-- Info -->
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;">${p.name}${!isStarter?` <span style="font-size:8px;color:rgba(106,180,255,.7);letter-spacing:1px;">SUP</span>`:''}</div>
+          <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+            ${mins>0?`<span style="font-size:9px;color:rgba(255,255,255,.3);">${mins}'</span>`:''}
+            ${pGoals>0?`<span style="background:rgba(34,197,94,.15);border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700;color:var(--green);">⚽ ${pGoals} gol${pGoals>1?'es':''}</span>`:''}
+            ${pAssists>0?`<span style="background:rgba(106,180,255,.12);border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700;color:#6ab4ff;">🅰️ ${pAssists} asist.</span>`:''}
+            ${r.evolucion?`<span style="font-size:13px;color:${evolColors[r.evolucion]};">${evolSymbols[r.evolucion]}</span>`:''}
+          </div>
         </div>
-        <div style="display:flex;align-items:center;gap:4px;">
-          <span style="font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.3);margin-right:4px;">EVOLUCIÓN</span>
-          ${evolBtns}
+        <!-- Rating + evolucion -->
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end;">
+          <div style="display:flex;align-items:center;gap:3px;">
+            <span style="font-size:7px;letter-spacing:1px;color:rgba(255,255,255,.25);margin-right:2px;">RÚB</span>
+            ${rubricaBtns}
+          </div>
+          <div style="display:flex;align-items:center;gap:3px;">
+            <span style="font-size:7px;letter-spacing:1px;color:rgba(255,255,255,.25);margin-right:2px;">EVOL</span>
+            ${evolBtns}
+          </div>
         </div>
       </div>
     </div>`;
-  }).join('');
+  }
+
+  el.innerHTML = summaryStrip +
+    (starters.length?`<div style="font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.25);margin-bottom:8px;">TITULARES</div>`:'') +
+    starters.map(pid=>playerCard(pid,true)).join('') +
+    (subs.length?`<div style="font-size:7px;letter-spacing:2px;color:rgba(106,180,255,.35);margin:12px 0 8px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);">SUPLENTES</div>`:'')+
+    subs.map(pid=>playerCard(pid,false)).join('');
 }
 
 function setRubrica(pid,val){
@@ -2374,7 +4190,7 @@ function launchGifPreview(m, frames){
   <button id="playBtn" onclick="togglePlay()">▶ PLAY</button>
   <button onclick="next()">▶</button>
 </div>
-<script>
+\x3cscript>
 const frames=document.querySelectorAll('.gif-frame');
 let cur=0,playing=false,timer=null;
 function show(i){
@@ -2699,7 +4515,16 @@ function setFormation(f,btn){
 }
 
 // ── Pitch rendering ──
-function renderPitchAndBench(){ renderPitch(); renderBench(); updateCaptainSelect(); }
+function renderPitchAndBench(){ 
+  // On mobile, scale pitch container to fit
+  const pitchEl = document.getElementById('matchPitch');
+  if(pitchEl && window.innerWidth<=768){
+    const w = Math.min(window.innerWidth - 28, 400);
+    pitchEl.style.width = w+'px';
+    pitchEl.style.height = Math.round(w*0.72)+'px';
+  }
+  renderPitch(); renderBench(); updateCaptainSelect(); 
+}
 
 function renderPitch(){
   const el=document.getElementById('matchPitch'); if(!el) return;
@@ -3046,8 +4871,8 @@ window.addEventListener('load',function(){
 <div id="tab-tareas" class="tab-panel" style="display:none;">
   <div class="layout" style="grid-template-columns:1fr 340px;">
     <div>
-      <div class="stitle">📋 SESIONES DE ENTRENAMIENTO
-        <button onclick="openNewSession()" style="margin-left:auto;background:var(--gold);color:var(--dark);border:none;padding:7px 18px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;cursor:pointer;">+ NUEVA SESIÓN</button>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:16px;">
+        <button onclick="openNewSession()" style="background:var(--gold);color:var(--dark);border:none;padding:9px 22px;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;transition:.2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">+ NUEVA SESIÓN</button>
       </div>
       <div class="filter-bar">
         <span class="filter-label">Período</span>
@@ -3075,43 +4900,49 @@ window.addEventListener('load',function(){
      TAB: ESTADÍSTICAS
 ═══════════════════════════════════════════════════ -->
 <div id="tab-stats" class="tab-panel" style="display:none;">
-  <div style="max-width:1400px;margin:0 auto;padding:32px 28px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px;">
+  <div style="max-width:1200px;margin:0 auto;padding:24px 20px 120px;">
+
+    <!-- Filters row -->
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
+      <select id="statFilter" class="finput" style="flex:1;min-width:130px;max-width:200px;" onchange="renderCharts()">
+        <option value="all">Toda la temporada</option>
+        <option value="month">Este mes</option>
+      </select>
+      <select id="statCategory" class="finput" style="flex:1;min-width:130px;max-width:200px;" onchange="renderCharts()">
+        <option value="all">Todas las categorías</option>
+      </select>
+    </div>
+
+    <!-- Puntos leaderboard full-width -->
+    <div class="chart-box" style="margin-bottom:16px;" id="statLbPuntos"></div>
+
+    <!-- Monthly evolution stays as small chart -->
+    <div class="chart-box" style="margin-bottom:16px;">
+      <div class="stitle" style="font-size:13px;margin-bottom:12px;">📈 EVOLUCIÓN MENSUAL</div>
+      <canvas id="chartEvolution" height="100"></canvas>
+    </div>
+
+    <!-- Competition stats: donut + goles leaderboard -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
       <div class="chart-box">
-        <div class="stitle">👤 PUNTOS POR JUGADOR</div>
-        <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
-          <select id="statFilter" class="finput" style="flex:1;min-width:140px;" onchange="renderCharts()">
-            <option value="all">Toda la temporada</option>
-            <option value="month">Este mes</option>
-          </select>
-          <select id="statCategory" class="finput" style="flex:1;min-width:140px;" onchange="renderCharts()">
-            <option value="all">Todas las categorías</option>
-          </select>
+        <div class="stitle" style="font-size:13px;margin-bottom:12px;">📂 POR CATEGORÍA</div>
+        <div style="display:flex;gap:16px;align-items:center;">
+          <canvas id="chartCategories" style="max-width:120px;max-height:120px;flex-shrink:0;"></canvas>
+          <div id="statCatLegend" style="flex:1;font-size:10px;"></div>
         </div>
-        <canvas id="chartPlayers" height="280"></canvas>
       </div>
-      <div class="chart-box">
-        <div class="stitle">📂 PUNTOS POR CATEGORÍA</div>
-        <canvas id="chartCategories" height="280"></canvas>
-      </div>
+      <div class="chart-box" id="statLbGoles"></div>
     </div>
-    <div class="chart-box" style="margin-bottom:28px;">
-      <div class="stitle">📈 EVOLUCIÓN MENSUAL</div>
-      <canvas id="chartEvolution" height="180"></canvas>
-    </div>
-    <div class="chart-box">
-      <div class="stitle">🔥 JUGADORES MÁS COMPETITIVOS (victorias)</div>
-      <canvas id="chartWins" height="200"></canvas>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px;">
-      <div class="chart-box">
-        <div class="stitle">🏆 GOLES POR JUGADOR</div>
-        <canvas id="chartCompGoals" height="250"></canvas>
-      </div>
-      <div class="chart-box">
-        <div class="stitle">📊 RESULTADOS</div>
-        <canvas id="chartResults" height="250"></canvas>
-      </div>
+
+    <!-- Results summary -->
+    <div class="chart-box" id="statResultsSummary"></div>
+
+    <!-- Hidden canvases still needed for Chart.js -->
+    <div style="display:none;">
+      <canvas id="chartPlayers"></canvas>
+      <canvas id="chartWins"></canvas>
+      <canvas id="chartCompGoals"></canvas>
+      <canvas id="chartResults"></canvas>
     </div>
   </div>
 </div>
@@ -3139,43 +4970,61 @@ window.addEventListener('load',function(){
 ═══════════════════════════════════════════════════ -->
 <div class="overlay" id="taskBuilderModal">
   <div class="modal" style="width:620px;max-height:92vh;overflow-y:auto;">
-    <h3>Configurar Tarea</h3>
+    <h3 style="margin-bottom:16px;">+ Configurar Tarea</h3>
 
-    <label class="flabel">Categoría</label>
-    <select class="finput" id="tbCat" onchange="updateSubcats()"></select>
-
-    <label class="flabel">Subcategoría</label>
-    <select class="finput" id="tbSubcat"></select>
-
-    <label class="flabel">Valor en Puntos (por ganador)</label>
-    <input class="finput" id="tbPts" type="number" min="1" max="100" placeholder="Ej: 5"/>
-
-    <!-- Photo upload -->
-    <label class="flabel">Foto de la tarea <span style="color:rgba(255,255,255,.25);font-size:8px;letter-spacing:1px;">(OPCIONAL)</span></label>
-    <div style="position:relative;">
-      <div class="photo-upload-zone" id="tbPhotoZone" onclick="document.getElementById('tbPhotoInput').click()">
-        <img id="tbPhotoPreview" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:8px;"/>
-        <div id="tbPhotoUploadLabel" class="upload-label" style="display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;">
-          <span style="font-size:26px;">📷</span>
-          <span style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.3);">SUBIR FOTO</span>
-        </div>
-        <input type="file" id="tbPhotoInput" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;" onchange="handleTaskPhoto(this)"/>
+    <!-- Categoría + subcategoría en una fila -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+      <div>
+        <label class="flabel">Categoría</label>
+        <select class="finput" id="tbCat" onchange="updateSubcats()" style="padding:8px 10px;"></select>
       </div>
-      <button id="tbPhotoRemoveBtn" onclick="removeTaskPhoto()" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.7);border:none;color:white;border-radius:50%;width:24px;height:24px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;z-index:2;">✕</button>
+      <div>
+        <label class="flabel">Subcategoría</label>
+        <select class="finput" id="tbSubcat" style="padding:8px 10px;"></select>
+      </div>
     </div>
 
-    <!-- Quick save to library removed -->
-
-    <label class="flabel">Número de Equipos</label>
-    <div style="display:flex;gap:8px;margin-top:4px;" id="numTeamsRow">
-      <button class="team-num-btn active" onclick="setNumTeams(2,this)">2</button>
-      <button class="team-num-btn" onclick="setNumTeams(3,this)">3</button>
-      <button class="team-num-btn" onclick="setNumTeams(4,this)">4</button>
+    <!-- Puntos: presets rápidos + campo -->
+    <label class="flabel">Puntos por ganador</label>
+    <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap;">
+      ${[1,2,3,5,10].map(n=>'').join('')}
+      <button class="pts-preset-btn" onclick="setTbPts(1)">1</button>
+      <button class="pts-preset-btn" onclick="setTbPts(2)">2</button>
+      <button class="pts-preset-btn" onclick="setTbPts(3)">3</button>
+      <button class="pts-preset-btn" onclick="setTbPts(5)">5</button>
+      <button class="pts-preset-btn" onclick="setTbPts(10)">10</button>
+      <input class="finput" id="tbPts" type="number" min="1" max="100" placeholder="Otro" style="width:80px;padding:7px 10px;" oninput="document.querySelectorAll('.pts-preset-btn').forEach(b=>b.classList.remove('active'))"/>
     </div>
 
-    <div id="teamsBuilder" style="margin-top:16px;display:flex;flex-direction:column;gap:14px;"></div>
+    <!-- Foto colapsable -->
+    <div style="margin-bottom:14px;">
+      <button onclick="toggleTbPhoto()" style="background:none;border:1px solid rgba(255,255,255,.12);border-radius:6px;color:rgba(255,255,255,.35);font-size:11px;letter-spacing:1.5px;padding:5px 12px;cursor:pointer;width:100%;text-align:left;" id="tbPhotoToggle">📷 AÑADIR FOTO (opcional) ▼</button>
+      <div id="tbPhotoSection" style="display:none;margin-top:8px;position:relative;">
+        <div class="photo-upload-zone" id="tbPhotoZone" onclick="document.getElementById('tbPhotoInput').click()" style="height:80px;">
+          <img id="tbPhotoPreview" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:8px;"/>
+          <div id="tbPhotoUploadLabel" class="upload-label" style="display:flex;align-items:center;gap:8px;pointer-events:none;">
+            <span style="font-size:20px;">📷</span>
+            <span style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.3);">SUBIR FOTO</span>
+          </div>
+          <input type="file" id="tbPhotoInput" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;" onchange="handleTaskPhoto(this)"/>
+        </div>
+        <button id="tbPhotoRemoveBtn" onclick="removeTaskPhoto()" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.7);border:none;color:white;border-radius:50%;width:24px;height:24px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;z-index:2;">✕</button>
+      </div>
+    </div>
 
-    <div class="mactions">
+    <!-- Equipos -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.3);">EQUIPOS:</span>
+      <div style="display:flex;gap:6px;" id="numTeamsRow">
+        <button class="team-num-btn active" onclick="setNumTeams(2,this)">2</button>
+        <button class="team-num-btn" onclick="setNumTeams(3,this)">3</button>
+        <button class="team-num-btn" onclick="setNumTeams(4,this)">4</button>
+      </div>
+    </div>
+
+    <div id="teamsBuilder" style="display:flex;flex-direction:column;gap:12px;"></div>
+
+    <div class="mactions" style="margin-top:16px;">
       <button class="btn-ok" onclick="confirmAddTask()">AÑADIR TAREA</button>
       <button class="btn-cancel" onclick="closeTaskBuilder()">Cancelar</button>
     </div>
@@ -3197,7 +5046,7 @@ window.addEventListener('load',function(){
 
 <!-- ═══════════════ TAB: DESARROLLO ═══════════════ -->
 <div id="tab-desarrollo" class="tab-panel" style="display:none;">
-  <div style="max-width:1300px;margin:0 auto;padding:32px 28px;">
+  <div style="max-width:1300px;margin:0 auto;padding:32px 28px 120px;">
     <div id="devPlayerGrid" class="dev-player-grid"></div>
     <div id="devProfile" style="display:none;"></div>
   </div>
@@ -3205,7 +5054,7 @@ window.addEventListener('load',function(){
 
 <!-- ═══════════════ TAB: COMPARAR ═══════════════ -->
 <div id="tab-comparar" class="tab-panel" style="display:none;">
-  <div style="max-width:1200px;margin:0 auto;padding:32px 28px;">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 28px 120px;">
 
     <!-- Player pickers -->
     <div class="cmp-pick-grid">
@@ -3280,53 +5129,36 @@ window.addEventListener('load',function(){
      TAB: COMPETICIÓN
 ═══════════════════════════════════════════════════ -->
 <div id="tab-competicion" class="tab-panel" style="display:none;">
-  <div style="max-width:1500px;margin:0 auto;padding:32px 28px;">
+  <div style="max-width:1200px;margin:0 auto;padding:24px 20px;">
 
-    <div class="stitle">🏆 COMPETICIÓN
-      <button onclick="openNewMatch()" style="margin-left:auto;background:var(--gold);color:var(--dark);border:none;padding:9px 22px;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">+ NUEVO PARTIDO</button>
+    <!-- Stats strip + New match button -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+      <div id="compSummary" class="comp-summary-strip" style="flex:1;min-width:0;"></div>
+      <button onclick="openNewMatch()" style="background:var(--gold);color:var(--dark);border:none;padding:10px 22px;border-radius:10px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">+ PARTIDO</button>
     </div>
 
-    <!-- Summary Stats -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin-bottom:24px;" id="compSummary"></div>
-
-    <!-- Match list section -->
-    <div style="display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:start;margin-bottom:36px;">
-      <div>
-        <!-- Filters -->
-        <div class="filter-bar" style="margin-bottom:18px;">
-          <span class="filter-label">Competición</span>
-          <button class="filter-btn active" id="cf-all" onclick="setCompFilter('all',this)">TODAS</button>
-          <button class="filter-btn" id="cf-Liga" onclick="setCompFilter('Liga',this)">LIGA</button>
-          <button class="filter-btn" id="cf-Amistoso" onclick="setCompFilter('Amistoso',this)">AMISTOSO</button>
-          <button class="filter-btn" id="cf-Torneo" onclick="setCompFilter('Torneo',this)">TORNEO</button>
-        </div>
-        <div id="compMatchList"></div>
-      </div>
-
-      <!-- Top scorers sidebar -->
-      <div class="sidebar">
-        <div style="background:var(--dark2);border:1px solid var(--border);border-radius:14px;overflow:hidden;">
-          <div style="background:linear-gradient(90deg,rgba(212,175,55,.15),transparent);padding:14px 18px;border-bottom:1px solid var(--border);">
-            <div class="stitle" style="border:none;margin:0;padding:0;font-size:17px;">⚽ GOLEADORES</div>
-          </div>
-          <div id="compTopScorers" style="padding:10px 16px;"></div>
-        </div>
-      </div>
+    <!-- Filter bar -->
+    <div class="filter-bar" style="margin-bottom:16px;">
+      <button class="filter-btn active" id="cf-all" onclick="setCompFilter('all',this)">TODOS</button>
+      <button class="filter-btn" id="cf-Liga" onclick="setCompFilter('Liga',this)">LIGA</button>
+      <button class="filter-btn" id="cf-Amistoso" onclick="setCompFilter('Amistoso',this)">AMISTOSO</button>
+      <button class="filter-btn" id="cf-Torneo" onclick="setCompFilter('Torneo',this)">TORNEO</button>
     </div>
 
-    <!-- ════ RANKINGS SECTION ════ -->
-    <div style="border-top:2px solid var(--border);padding-top:28px;margin-top:4px;">
-      <div class="stitle" style="margin-bottom:20px;">📊 RANKINGS DE JUGADORES</div>
+    <!-- Match list (new design) -->
+    <div id="compMatchList" class="match-feed" style="margin-bottom:32px;"></div>
 
-      <!-- Filter by competition type -->
-      <div class="filter-bar" style="margin-bottom:24px;">
-        <span class="filter-label">Tipo</span>
-        <button class="filter-btn active" id="rf-all" onclick="setRankFilter('all',this)">TODOS</button>
-        <button class="filter-btn" id="rf-Liga" onclick="setRankFilter('Liga',this)">LIGA</button>
-        <button class="filter-btn" id="rf-Amistosos" onclick="setRankFilter('Amistosos',this)">AMISTOSOS</button>
-        <button class="filter-btn" id="rf-Torneos" onclick="setRankFilter('Torneos',this)">TORNEOS</button>
+    <!-- Rankings section -->
+    <div style="border-top:2px solid var(--border);padding-top:24px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--gold-light);">📊 RANKINGS</div>
+        <div class="filter-bar" style="margin:0;padding:6px 10px;gap:6px;">
+          <button class="filter-btn active" id="rf-all" onclick="setRankFilter('all',this)">TODOS</button>
+          <button class="filter-btn" id="rf-Liga" onclick="setRankFilter('Liga',this)">LIGA</button>
+          <button class="filter-btn" id="rf-Amistosos" onclick="setRankFilter('Amistosos',this)">AMISTOSOS</button>
+          <button class="filter-btn" id="rf-Torneos" onclick="setRankFilter('Torneos',this)">TORNEOS</button>
+        </div>
       </div>
-
       <div id="compRankings"></div>
     </div>
 
@@ -3515,4 +5347,146 @@ window.addEventListener('load',function(){
 </div>
 
 </body>
+
+<style>
+@keyframes rm-slide-up{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+#_pwa_install,#_pwa_update{
+  position:fixed;left:0;right:0;bottom:0;z-index:9999;
+  display:none;align-items:center;gap:12px;
+  padding:14px 18px max(14px,calc(14px + env(safe-area-inset-bottom,0px)));
+  background:linear-gradient(135deg,#1a1f33,#0f1420);
+  border-top:1px solid rgba(212,175,55,.3);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 -8px 32px rgba(0,0,0,.6);
+  animation:rm-slide-up .35s ease-out;
+}
+#_pwa_net{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  display:none;align-items:center;justify-content:center;
+  gap:8px;padding:8px 18px;
+  background:rgba(239,68,68,.12);
+  border-bottom:1px solid rgba(239,68,68,.35);
+  backdrop-filter:blur(10px);
+  font-size:11px;letter-spacing:2px;color:#ef4444;
+  font-family:'Bebas Neue',sans-serif;
+}
+.pwa-icon{width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(212,175,55,.4);overflow:hidden;flex-shrink:0;background:#0d1117;}
+.pwa-icon img{width:100%;height:100%;object-fit:cover;}
+.pwa-text{flex:1;min-width:0;}
+.pwa-text strong{display:block;font-size:13px;font-weight:700;margin-bottom:2px;}
+.pwa-text span{font-size:10px;color:rgba(255,255,255,.45);}
+.pwa-btn-gold{background:var(--gold,#d4af37);color:#0d1117;border:none;border-radius:8px;padding:9px 18px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:.15s;}
+.pwa-btn-gold:hover{background:#f5d86e;}
+.pwa-btn-dismiss{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.35);border-radius:6px;padding:7px 12px;font-size:11px;cursor:pointer;flex-shrink:0;transition:.15s;}
+.pwa-btn-dismiss:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6);}
+</style>
+
+<!-- ══ OFFLINE BAR ══ -->
+<div id="_pwa_net">⚡ SIN CONEXIÓN — Datos guardados localmente</div>
+
+<!-- ══ INSTALL BANNER ══ -->
+<div id="_pwa_install">
+  <div class="pwa-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTk2IDE4IEwxNTAgNTAgTDE1MCAxMTAgQzE1MCAxNDUgOTYgMTc0IDk2IDE3NCBDOTYgMTc0IDQyIDE0NSA0MiAxMTAgTDQyIDUwIFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTk2IDI4IEwxNDQgNTcgTDE0NCAxMDggQzE0NCAxMzggOTYgMTYzIDk2IDE2MyBDOTYgMTYzIDQ4IDEzOCA0OCAxMDggTDQ4IDU3IFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSI5NiIgeT0iMTA1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI1MiIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJNPC90ZXh0PgogIDxwYXRoIGQ9Ik03MCAxMjUgTDEyMiAxMjUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSI5NiIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+" alt="RM"/></div>
+  <div class="pwa-text">
+    <strong>Instalar RM Tracker</strong>
+    <span>Acceso rápido desde la pantalla de inicio</span>
+  </div>
+  <button class="pwa-btn-gold" onclick="window._rmInstall()">INSTALAR</button>
+  <button class="pwa-btn-dismiss" onclick="this.closest('#_pwa_install').style.display='none'">✕</button>
+</div>
+
+<!-- ══ UPDATE BANNER ══ -->
+<div id="_pwa_update">
+  <div class="pwa-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTk2IDE4IEwxNTAgNTAgTDE1MCAxMTAgQzE1MCAxNDUgOTYgMTc0IDk2IDE3NCBDOTYgMTc0IDQyIDE0NSA0MiAxMTAgTDQyIDUwIFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTk2IDI4IEwxNDQgNTcgTDE0NCAxMDggQzE0NCAxMzggOTYgMTYzIDk2IDE2MyBDOTYgMTYzIDQ4IDEzOCA0OCAxMDggTDQ4IDU3IFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSI5NiIgeT0iMTA1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI1MiIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJNPC90ZXh0PgogIDxwYXRoIGQ9Ik03MCAxMjUgTDEyMiAxMjUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSI5NiIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+" alt="RM"/></div>
+  <div class="pwa-text">
+    <strong>Nueva versión disponible</strong>
+    <span>Actualiza para usar la versión más reciente</span>
+  </div>
+  <button class="pwa-btn-gold" onclick="window._rmUpdate()">ACTUALIZAR</button>
+  <button class="pwa-btn-dismiss" onclick="this.closest('#_pwa_update').style.display='none'">✕</button>
+</div>
+
+<script>
+(function() {
+  // ── Manifest via blob ──
+  var manifestObj = "{\"name\": \"Real Madrid Tracker\", \"short_name\": \"RM Tracker\", \"description\": \"Gesti\\u00f3n de plantilla, tarjetas, tareas y competici\\u00f3n\", \"start_url\": \"./\", \"display\": \"standalone\", \"background_color\": \"#0d1117\", \"theme_color\": \"#d4af37\", \"orientation\": \"portrait-primary\", \"categories\": [\"sports\", \"productivity\"], \"lang\": \"es\", \"icons\": [{\"src\": \"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTk2IDE4IEwxNTAgNTAgTDE1MCAxMTAgQzE1MCAxNDUgOTYgMTc0IDk2IDE3NCBDOTYgMTc0IDQyIDE0NSA0MiAxMTAgTDQyIDUwIFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTk2IDI4IEwxNDQgNTcgTDE0NCAxMDggQzE0NCAxMzggOTYgMTYzIDk2IDE2MyBDOTYgMTYzIDQ4IDEzOCA0OCAxMDggTDQ4IDU3IFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSI5NiIgeT0iMTA1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI1MiIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJNPC90ZXh0PgogIDxwYXRoIGQ9Ik03MCAxMjUgTDEyMiAxMjUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSI5NiIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+\", \"sizes\": \"192x192\", \"type\": \"image/svg+xml\", \"purpose\": \"any maskable\"}, {\"src\": \"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9Ijk2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTI1NiA0OCBMNDAwIDEzNCBMNDAwIDI5NCBDNDAwIDM4OCAyNTYgNDY0IDI1NiA0NjQgQzI1NiA0NjQgMTEyIDM4OCAxMTIgMjk0IEwxMTIgMTM0IFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTI1NiA3NCBMMzg0IDE1MiBMMzg0IDI5MCBDMzg0IDM2OCAyNTYgNDM4IDI1NiA0MzggQzI1NiA0MzggMTI4IDM2OCAxMjggMjkwIEwxMjggMTUyIFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSIyNTYiIHk9IjI4MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMTQwIiBmaWxsPSIjZDRhZjM3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiI+Uk08L3RleHQ+CiAgPHBhdGggZD0iTTcwIDEyNSBMMTIyIDEyNSIgc3Ryb2tlPSIjZDRhZjM3IiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNSIvPgogIDx0ZXh0IHg9IjI1NiIgeT0iMzc0IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+\", \"sizes\": \"512x512\", \"type\": \"image/svg+xml\", \"purpose\": \"any maskable\"}], \"shortcuts\": [{\"name\": \"Plantilla\", \"short_name\": \"Plantilla\", \"url\": \"./?tab=plantilla\", \"icons\": [{\"src\": \"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTk2IDE4IEwxNTAgNTAgTDE1MCAxMTAgQzE1MCAxNDUgOTYgMTc0IDk2IDE3NCBDOTYgMTc0IDQyIDE0NSA0MiAxMTAgTDQyIDUwIFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTk2IDI4IEwxNDQgNTcgTDE0NCAxMDggQzE0NCAxMzggOTYgMTYzIDk2IDE2MyBDOTYgMTYzIDQ4IDEzOCA0OCAxMDggTDQ4IDU3IFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSI5NiIgeT0iMTA1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI1MiIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJNPC90ZXh0PgogIDxwYXRoIGQ9Ik03MCAxMjUgTDEyMiAxMjUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSI5NiIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+\", \"sizes\": \"192x192\"}]}, {\"name\": \"Competici\\u00f3n\", \"short_name\": \"Partidos\", \"url\": \"./?tab=competicion\", \"icons\": [{\"src\": \"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMGQxMTE3Ii8+CiAgPHBhdGggZD0iTTk2IDE4IEwxNTAgNTAgTDE1MCAxMTAgQzE1MCAxNDUgOTYgMTc0IDk2IDE3NCBDOTYgMTc0IDQyIDE0NSA0MiAxMTAgTDQyIDUwIFoiIGZpbGw9IiMxZTI0MzYiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTk2IDI4IEwxNDQgNTcgTDE0NCAxMDggQzE0NCAxMzggOTYgMTYzIDk2IDE2MyBDOTYgMTYzIDQ4IDEzOCA0OCAxMDggTDQ4IDU3IFoiIGZpbGw9IiMwZDExMTciLz4KICA8dGV4dCB4PSI5NiIgeT0iMTA1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI1MiIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJNPC90ZXh0PgogIDxwYXRoIGQ9Ik03MCAxMjUgTDEyMiAxMjUiIHN0cm9rZT0iI2Q0YWYzNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSI5NiIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2Q0YWYzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC42IiBsZXR0ZXItc3BhY2luZz0iMyI+VFJBQ0tFUjwvdGV4dD4KPC9zdmc+\", \"sizes\": \"192x192\"}]}]}";
+  try {
+    var blob = new Blob([manifestObj], {type: 'application/manifest+json'});
+    var mUrl = URL.createObjectURL(blob);
+    var link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = mUrl;
+    document.head.appendChild(link);
+  } catch(e) { console.warn('[PWA] manifest:', e); }
+
+  // ── Service Worker ──
+  var deferredPrompt = null;
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./sw.js', {scope: './'})
+        .then(function(reg) {
+          reg.addEventListener('updatefound', function() {
+            var nw = reg.installing;
+            nw.addEventListener('statechange', function() {
+              if (nw.state === 'installed' && navigator.serviceWorker.controller) {
+                var b = document.getElementById('_pwa_update');
+                if (b) b.style.display = 'flex';
+              }
+            });
+          });
+        })
+        .catch(function(err) { console.warn('[PWA] SW:', err); });
+      var refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', function() {
+        if (!refreshing) { refreshing = true; location.reload(); }
+      });
+    });
+  }
+
+  // ── A2HS prompt ──
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    var b = document.getElementById('_pwa_install');
+    if (b) setTimeout(function(){ b.style.display='flex'; }, 2500);
+  });
+  window.addEventListener('appinstalled', function() {
+    var b = document.getElementById('_pwa_install');
+    if (b) b.style.display = 'none';
+    deferredPrompt = null;
+  });
+  window._rmInstall = function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(res) {
+      if (res.outcome === 'accepted') {
+        deferredPrompt = null;
+        var b = document.getElementById('_pwa_install');
+        if (b) b.style.display = 'none';
+      }
+    });
+  };
+  window._rmUpdate = function() {
+    navigator.serviceWorker.getRegistration('./').then(function(reg) {
+      if (reg && reg.waiting) reg.waiting.postMessage({type: 'SKIP_WAITING'});
+    });
+  };
+
+  // ── Network status ──
+  function checkNet() {
+    var el = document.getElementById('_pwa_net');
+    if (el) el.style.display = navigator.onLine ? 'none' : 'flex';
+  }
+  window.addEventListener('online', checkNet);
+  window.addEventListener('offline', checkNet);
+
+  // ── PWA shortcut: ?tab=X ──
+  var urlTab = new URLSearchParams(location.search).get('tab');
+  if (urlTab && ['plantilla','tareas','stats','comparar','competicion'].indexOf(urlTab) !== -1) {
+    window.addEventListener('load', function() {
+      setTimeout(function() { if (typeof switchTab === 'function') switchTab(urlTab); }, 200);
+    });
+  }
+})();
+</script>
 </html>
